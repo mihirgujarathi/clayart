@@ -1494,57 +1494,14 @@ document.addEventListener('DOMContentLoaded', () => {
         isDraggingShelfPart = false;
         gameArea.releasePointerCapture(e.pointerId);
         
-        const rect = gameArea.getBoundingClientRect();
-        const dropX = e.clientX - rect.left;
-        const dropY = e.clientY - rect.top;
-
-        // Silhouette bounds check
-        const silhouette = document.getElementById('assembly-silhouette');
-        const silRect = silhouette.getBoundingClientRect();
-        const silLeft = silRect.left - rect.left;
-        const silTop = silRect.top - rect.top;
-
-        // Automatically snap if dropped anywhere inside the active game area!
-        const isInsideCanvas = dropX >= -20 && dropX <= rect.width + 20 && dropY >= -20 && dropY <= rect.height + 20;
+        // Unconditionally satisfy snapping upon dropping anywhere inside the bounds or canvas context!
+        snapShelfPartIntoSilhouette(activeDragData);
+        if (clayState.draggedPart) clayState.draggedPart.remove();
         
-        if (isInsideCanvas) {
-          // satisfy drop collision snapping!
-          snapShelfPartIntoSilhouette(activeDragData);
-          if (clayState.draggedPart) clayState.draggedPart.remove();
-          
-          activeDragClone.remove();
-          activeDragClone = null;
-          activeDragData = null;
-          clayState.draggedPart = null;
-        } else {
-          // Smooth bounce/slide back to its original shelf slot!
-          const shelfPart = clayState.draggedPart;
-          const clone = activeDragClone;
-          
-          if (shelfPart && clone) {
-            clone.classList.add('slide-back');
-            
-            // Get shelf slot center coords relative to gameArea bounds
-            const shelfRect = shelfPart.getBoundingClientRect();
-            const areaRect = gameArea.getBoundingClientRect();
-            const slotX = shelfRect.left - areaRect.left + shelfRect.width / 2;
-            const slotY = shelfRect.top - areaRect.top + shelfRect.height / 2;
-            
-            clone.style.left = slotX + 'px';
-            clone.style.top = slotY + 'px';
-            
-            setTimeout(() => {
-              clone.remove();
-              shelfPart.style.opacity = '1';
-            }, 450);
-          } else {
-            if (clone) clone.remove();
-          }
-          
-          activeDragClone = null;
-          activeDragData = null;
-          clayState.draggedPart = null;
-        }
+        activeDragClone.remove();
+        activeDragClone = null;
+        activeDragData = null;
+        clayState.draggedPart = null;
         return;
       }
 
@@ -1587,8 +1544,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (assemblySilhouette) {
       const outlines = assemblySilhouette.querySelectorAll(`.sil-part-${partData.id}`);
       outlines.forEach(el => {
-        el.style.opacity = '0';
-        el.style.stroke = 'none';
+        el.classList.add('part-snapped');
       });
     }
 
