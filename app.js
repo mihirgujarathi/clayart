@@ -780,7 +780,7 @@ document.addEventListener('DOMContentLoaded', () => {
           action: 'assemble', actionLabel: 'Drag parts to silhouette'
         }
       ],
-      finalSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="67" rx="34" ry="24" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/><circle cx="50" cy="43" r="21" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/><path d="M 33,35 L 30,18 L 42,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/><path d="M 67,35 L 70,18 L 58,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/><path d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/><path d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/><path d="M 40,44 Q 44,48 44,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M 60,44 Q 56,48 56,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="50" cy="49" r="2" fill="#E5B2A9"/><path d="M 46,52 Q 50,55 54,52" stroke="#3D4A41" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><ellipse cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><path d="M 72,70 Q 82,62 80,75 Q 78,82 68,78" stroke="#DBC8B5" stroke-width="4" stroke-linecap="round" fill="none"/></svg>`
+      finalSvg: `<svg viewBox="0 0 100 100"><ellipse class="sil-part-body" cx="50" cy="67" rx="34" ry="24" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/><circle class="sil-part-head" cx="50" cy="43" r="21" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/><path class="sil-part-head" d="M 33,35 L 30,18 L 42,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/><path class="sil-part-head" d="M 67,35 L 70,18 L 58,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/><path class="sil-part-head" d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 40,44 Q 44,48 44,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><path class="sil-part-head" d="M 60,44 Q 56,48 56,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle class="sil-part-head" cx="50" cy="49" r="2" fill="#E5B2A9"/><path class="sil-part-head" d="M 46,52 Q 50,55 54,52" stroke="#3D4A41" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse class="sil-part-head" cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><ellipse class="sil-part-head" cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><path class="sil-part-tail" d="M 72,70 Q 82,62 80,75 Q 78,82 68,78" stroke="#DBC8B5" stroke-width="4" stroke-linecap="round" fill="none"/></svg>`
     },
     gojo: {
       name: 'Gojo Chibi', emoji: '⚡',
@@ -826,7 +826,7 @@ document.addEventListener('DOMContentLoaded', () => {
           action: 'assemble', actionLabel: 'Drag parts to silhouette'
         }
       ],
-      finalSvg: `<svg viewBox="0 0 100 100"><rect x="34" y="64" width="32" height="26" rx="8" fill="#1a2744" stroke="#111d38" stroke-width="1.5"/><path d="M 44,64 L 50,72 L 56,64" fill="#FAF8F4" stroke="#DDD" stroke-width="1"/><ellipse cx="27" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.5" transform="rotate(-20 27 72)"/><ellipse cx="73" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.5" transform="rotate(20 73 72)"/><circle cx="50" cy="40" r="28" fill="#FAF8F4" stroke="#E0D5C5" stroke-width="1.5"/><ellipse cx="50" cy="26" rx="26" ry="14" fill="#E8E8F0"/><path d="M 30,28 L 26,10 L 36,22 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path d="M 38,22 L 38,6 L 46,20 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path d="M 48,20 L 50,4 L 56,18 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path d="M 58,22 L 64,8 L 66,24 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path d="M 66,28 L 74,14 L 72,30 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><rect x="24" y="35" width="52" height="11" rx="5.5" fill="#1a1a2e"/><rect x="27" y="37" width="18" height="3" rx="1.5" fill="white" opacity="0.15"/><path d="M 44,52 Q 50,57 56,52" stroke="#3D4A41" stroke-width="1.5" stroke-linecap="round" fill="none"/><ellipse cx="36" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse cx="64" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse cx="40" cy="91" rx="7" ry="4" fill="#1a2744"/><ellipse cx="60" cy="91" rx="7" ry="4" fill="#1a2744"/></svg>`
+      finalSvg: `<svg viewBox="0 0 100 100"><rect class="sil-part-body" x="34" y="64" width="32" height="26" rx="8" fill="#1a2744" stroke="#111d38" stroke-width="1.5"/><path class="sil-part-body" d="M 44,64 L 50,72 L 56,64" fill="#FAF8F4" stroke="#DDD" stroke-width="1"/><ellipse class="sil-part-body" cx="27" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.5" transform="rotate(-20 27 72)"/><ellipse class="sil-part-body" cx="73" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.5" transform="rotate(20 73 72)"/><circle class="sil-part-head" cx="50" cy="40" r="28" fill="#FAF8F4" stroke="#E0D5C5" stroke-width="1.5"/><ellipse class="sil-part-hair" cx="50" cy="26" rx="26" ry="14" fill="#E8E8F0"/><path class="sil-part-hair" d="M 30,28 L 26,10 L 36,22 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path class="sil-part-hair" d="M 38,22 L 38,6 L 46,20 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path class="sil-part-hair" d="M 48,20 L 50,4 L 56,18 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path class="sil-part-hair" d="M 58,22 L 64,8 L 66,24 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path class="sil-part-hair" d="M 66,28 L 74,14 L 72,30 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><rect class="sil-part-hair" x="24" y="35" width="52" height="11" rx="5.5" fill="#1a1a2e"/><rect class="sil-part-hair" x="27" y="37" width="18" height="3" rx="1.5" fill="white" opacity="0.15"/><path class="sil-part-head" d="M 44,52 Q 50,57 56,52" stroke="#3D4A41" stroke-width="1.5" stroke-linecap="round" fill="none"/><ellipse class="sil-part-head" cx="36" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse class="sil-part-head" cx="64" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse class="sil-part-body" cx="40" cy="91" rx="7" ry="4" fill="#1a2744"/><ellipse class="sil-part-body" cx="60" cy="91" rx="7" ry="4" fill="#1a2744"/></svg>`
     },
     penguin: {
       name: 'Cute Penguin', emoji: '🐧',
@@ -872,7 +872,7 @@ document.addEventListener('DOMContentLoaded', () => {
           action: 'assemble', actionLabel: 'Drag parts to silhouette'
         }
       ],
-      finalSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="66" rx="26" ry="28" fill="#1e2235" stroke="#141627" stroke-width="1.5"/><ellipse cx="50" cy="70" rx="16" ry="20" fill="#F7F4EB"/><circle cx="50" cy="36" r="20" fill="#1e2235" stroke="#141627" stroke-width="1.5"/><circle cx="43" cy="32" r="6" fill="white"/><circle cx="57" cy="32" r="6" fill="white"/><circle cx="44" cy="33" r="3.5" fill="#1e1e2e"/><circle cx="58" cy="33" r="3.5" fill="#1e1e2e"/><circle cx="45" cy="31" r="1.2" fill="white"/><circle cx="59" cy="31" r="1.2" fill="white"/><path d="M 46,40 L 50,47 L 54,40 Z" fill="#FF8C42" stroke="#E07030" stroke-width="1"/><ellipse cx="36" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse cx="64" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse cx="24" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.5" transform="rotate(-15 24 65)"/><ellipse cx="76" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.5" transform="rotate(15 76 65)"/><ellipse cx="40" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(-10 40 93)"/><ellipse cx="60" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(10 60 93)"/></svg>`
+      finalSvg: `<svg viewBox="0 0 100 100"><ellipse class="sil-part-body" cx="50" cy="66" rx="26" ry="28" fill="#1e2235" stroke="#141627" stroke-width="1.5"/><ellipse class="sil-part-belly" cx="50" cy="70" rx="16" ry="20" fill="#F7F4EB"/><circle class="sil-part-head" cx="50" cy="36" r="20" fill="#1e2235" stroke="#141627" stroke-width="1.5"/><circle class="sil-part-head" cx="43" cy="32" r="6" fill="white"/><circle class="sil-part-head" cx="57" cy="32" r="6" fill="white"/><circle class="sil-part-head" cx="44" cy="33" r="3.5" fill="#1e1e2e"/><circle class="sil-part-head" cx="58" cy="33" r="3.5" fill="#1e1e2e"/><circle class="sil-part-head" cx="45" cy="31" r="1.2" fill="white"/><circle class="sil-part-head" cx="59" cy="31" r="1.2" fill="white"/><path class="sil-part-belly" d="M 46,40 L 50,47 L 54,40 Z" fill="#FF8C42" stroke="#E07030" stroke-width="1"/><ellipse class="sil-part-head" cx="36" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse class="sil-part-head" cx="64" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse class="sil-part-body" cx="24" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.5" transform="rotate(-15 24 65)"/><ellipse class="sil-part-body" cx="76" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.5" transform="rotate(15 76 65)"/><ellipse class="sil-part-body" cx="40" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(-10 40 93)"/><ellipse class="sil-part-body" cx="60" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(10 60 93)"/></svg>`
     }
   };
 
@@ -1504,13 +1504,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const silLeft = silRect.left - rect.left;
         const silTop = silRect.top - rect.top;
 
-        // Scale factors: calculated relative to actual silhouette client size (100% of game area)
-        const targetX = silLeft + (silRect.width * activeDragData.assembleAt.x / 100);
-        const targetY = silTop + (silRect.height * activeDragData.assembleAt.y / 100);
-
-        const distance = Math.sqrt((dropX - targetX) ** 2 + (dropY - targetY) ** 2);
-
-        if (distance < 28) {
+        // Automatically snap if dropped anywhere inside the active game area!
+        const isInsideCanvas = dropX >= -20 && dropX <= rect.width + 20 && dropY >= -20 && dropY <= rect.height + 20;
+        
+        if (isInsideCanvas) {
           // satisfy drop collision snapping!
           snapShelfPartIntoSilhouette(activeDragData);
           if (clayState.draggedPart) clayState.draggedPart.remove();
@@ -1585,6 +1582,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function snapShelfPartIntoSilhouette(partData) {
     playPopChime();
     assembledPartsSnaps[partData.id] = true;
+
+    // Hide silhouette outlines for this part
+    if (assemblySilhouette) {
+      const outlines = assemblySilhouette.querySelectorAll(`.sil-part-${partData.id}`);
+      outlines.forEach(el => {
+        el.style.opacity = '0';
+        el.style.stroke = 'none';
+      });
+    }
 
     // Inject piece into snap area
     const snapPiece = document.createElement('div');

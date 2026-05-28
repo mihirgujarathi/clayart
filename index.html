@@ -920,7 +920,7 @@
     .step-card-compact { padding: 8px 12px !important; margin-top: 6px !important; }
     .step-card-compact .step-card-inner { gap: 3px !important; }
     .step-card-compact .step-instruction { font-size: 0.72rem !important; line-height: 1.4 !important; }
-    .steps-nav { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 8px !important; }
+    .steps-nav { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 8px !important; margin-bottom: 12px !important; }
     .step-nav-btn { display: flex !important; align-items: center !important; gap: 5px !important; background: rgba(255,255,255,0.7) !important; border: 1.5px solid rgba(143,164,153,0.25) !important; border-radius: 12px !important; padding: 7px 14px !important; font-size: 0.73rem !important; font-weight: 700 !important; font-family: var(--font-body) !important; color: var(--color-sage-deep) !important; cursor: pointer !important; transition: all 0.25s ease !important; }
     .step-nav-btn:hover:not(:disabled) { background: rgba(255,255,255,0.95) !important; transform: translateY(-2px) !important; }
     .step-nav-btn:disabled { opacity: 0.35 !important; cursor: not-allowed !important; }
@@ -1444,8 +1444,16 @@
             
             <div class="screen-content music-layout">
               <!-- Top bar -->
-              <div class="music-header" style="justify-content: center; margin-bottom: 5px; width: 100%;">
-                <h3 class="screen-title" style="font-size: 1.22rem; font-weight: 800; letter-spacing: -0.2px;">Select a music ☕</h3>
+              <div class="music-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; width: 100%;">
+                <button class="steps-back-btn next-screen-trigger" data-target="intro" title="Back to Intro">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"/></svg>
+                  Back
+                </button>
+                <h3 class="screen-title" style="font-size: 1.05rem; font-weight: 800; letter-spacing: -0.2px; margin: 0;">Select a music ☕</h3>
+                <button class="steps-back-btn next-screen-trigger" data-target="gallery" title="Next Screen" style="background: var(--color-pink-dark) !important; border-color: var(--color-pink-dark) !important; color: #3D4A41 !important;">
+                  Next
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 6 15 12 9 18"/></svg>
+                </button>
               </div>
 
               <!-- Main Record Player Zone -->
@@ -1556,10 +1564,7 @@
                     </span>
                     <span id="play-text">Start Lo-Fi Loop</span>
                   </button>
-                  
-                  <button class="music-action-btn next-screen-trigger circle-btn" data-target="gallery" title="Next Screen">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                  </button>
+
                 </div>
                 <span class="headphones-hint">🎧 Best enjoyed with headphones active</span>
               </div>
@@ -1716,6 +1721,19 @@
                 </div>
               </div>
 
+              <!-- Navigation -->
+              <div class="steps-nav">
+                <button class="step-nav-btn prev" id="step-prev-btn" disabled>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Prev
+                </button>
+                <span class="step-counter" id="step-counter">1 / 5</span>
+                <button class="step-nav-btn next" id="step-next-btn">
+                  Next
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+
               <!-- Step Progress Dots -->
               <div class="steps-dots-row" id="steps-dots-row"></div>
 
@@ -1765,19 +1783,6 @@
                   <div class="step-tool-tag" id="step-tool-tag">🤲 Your hands</div>
                   <p class="step-instruction" id="step-instruction">Loading...</p>
                 </div>
-              </div>
-
-              <!-- Navigation -->
-              <div class="steps-nav">
-                <button class="step-nav-btn prev" id="step-prev-btn" disabled>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  Prev
-                </button>
-                <span class="step-counter" id="step-counter">1 / 5</span>
-                <button class="step-nav-btn next" id="step-next-btn">
-                  Next
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </button>
               </div>
 
             </div>
