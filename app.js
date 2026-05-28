@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const storyDialogues = [
     "Welcome Pranjal (goldfish)....",
     "You're probably wondering what on earth this is, aren't you?",
-    "Wait, let me ask... WHAT IS THIS?? 🥺🍓",
+    "But first, let me ask... WHAT IS THIS?? 😂",
     "You see, since you and a certain squishy substance got beef... I wanted to do something about it.",
     "So here we are.... welcome to HEARTSTOPPER.....",
     "Nooo, not the BL but Heartstopper ClayArt class! Shall we begin?"
@@ -1504,12 +1504,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const silLeft = silRect.left - rect.left;
         const silTop = silRect.top - rect.top;
 
-        // Scale factors: silhouette is 160px square centered inside game-area
-        const tx = 1.6 * activeDragData.assembleAt.x;
-        const ty = 1.6 * activeDragData.assembleAt.y;
-        
-        const targetX = silLeft + tx;
-        const targetY = silTop + ty;
+        // Scale factors: calculated relative to actual silhouette client size (100% of game area)
+        const targetX = silLeft + (silRect.width * activeDragData.assembleAt.x / 100);
+        const targetY = silTop + (silRect.height * activeDragData.assembleAt.y / 100);
 
         const distance = Math.sqrt((dropX - targetX) ** 2 + (dropY - targetY) ** 2);
 
@@ -1592,8 +1589,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inject piece into snap area
     const snapPiece = document.createElement('div');
     snapPiece.className = 'assembly-placed-part';
-    snapPiece.style.left = partData.assembleAt.x + '%';
-    snapPiece.style.top = partData.assembleAt.y + '%';
     snapPiece.innerHTML = partData.partSvg;
     
     if (assemblyPlacedParts) {
