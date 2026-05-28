@@ -929,6 +929,15 @@
     .step-nav-btn.next.finish { background: #8FA499 !important; border-color: #8FA499 !important; color: #3D4A41 !important; }
     .step-nav-btn.next.finish:disabled { background: rgba(143,164,153,0.2) !important; border-color: rgba(143,164,153,0.15) !important; color: rgba(61,74,65,0.35) !important; opacity: 1 !important; }
     .step-counter { font-family: var(--font-display) !important; font-size: 0.78rem !important; font-weight: 700 !important; color: var(--color-sage-deep) !important; opacity: 0.7 !important; }
+    @keyframes pulseNextHighlight {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 178, 169, 0.7); }
+      70% { transform: scale(1.06); box-shadow: 0 0 0 10px rgba(229, 178, 169, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 178, 169, 0); }
+    }
+    .step-nav-btn.next.pulse-highlight {
+      animation: pulseNextHighlight 1.5s infinite ease-in-out !important;
+      border-color: var(--color-pink-dark) !important;
+    }
 
     /* Game-like Step Enhancements & Interactive Tools */
     .shutter-flash {

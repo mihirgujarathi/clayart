@@ -1006,6 +1006,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const isLast = stepIdx === data.parts.length - 1;
           nextBtn.classList.toggle('finish', isLast);
           nextBtn.disabled = !stepsChecked[stepIdx];
+          nextBtn.classList.remove('pulse-highlight');
           
           nextBtn.innerHTML = isLast
             ? `Assemble! <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>`
@@ -1548,10 +1549,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Inject piece into snap area
+    // Inject piece into snap area with explicit z-index layering to preserve visual stacking!
     const snapPiece = document.createElement('div');
     snapPiece.className = 'assembly-placed-part';
     snapPiece.innerHTML = partData.partSvg;
+
+    const zLayers = {
+      tail: 1,
+      body: 2,
+      belly: 3,
+      head: 4,
+      hair: 5
+    };
+    snapPiece.style.zIndex = zLayers[partData.id] || 2;
     
     if (assemblyPlacedParts) {
       assemblyPlacedParts.appendChild(snapPiece);
@@ -1639,25 +1649,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Swap graphics to clean wobbly shapes
     transformClayToFinishedStepGraphic();
 
-    // Enable next button immediately so they can skip if they want
+    // Enable next button immediately and trigger a beautiful pulsing hint to tap Next!
     const nextBtn = document.getElementById('step-next-btn');
-    if (nextBtn) nextBtn.disabled = false;
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      nextBtn.classList.add('pulse-highlight');
+    }
 
     // Fly animation to shelf (triggered after a satisfying 950ms delay so user can admire their work!)
     const svgWrapper = gameArea.querySelector('.game-clay-svg');
     if (svgWrapper && (part.partSvg || part.subParts)) {
       setTimeout(() => {
-        // Start zero-G flight takeoff!
-        svgWrapper.classList.remove('floating-bob');
-        svgWrapper.classList.add('fly-to-shelf');
-        svgWrapper.style.animation = 'none';
-        svgWrapper.offsetHeight; // trigger reflow
-        svgWrapper.style.animation = 'flyToShelf 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards';
+        // Create a wobbly flight clone so the main canvas SVG remains intact and visible!
+        const flightClone = svgWrapper.cloneNode(true);
+        flightClone.style.position = 'absolute';
+        flightClone.style.left = '50%';
+        flightClone.style.top = '50%';
+        flightClone.style.transform = 'translate(-50%, -50%)';
+        flightClone.style.pointerEvents = 'none';
+        flightClone.style.zIndex = '50';
+        gameArea.appendChild(flightClone);
+
+        // Start zero-G flight takeoff of the clone!
+        flightClone.classList.remove('floating-bob');
+        flightClone.classList.add('fly-to-shelf');
+        flightClone.style.animation = 'flyToShelf 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards';
         
         // Update shelf and trigger landing sparkles exactly when it lands (650ms flight duration)!
         setTimeout(() => {
           repopulatePartsOnShelf();
-          svgWrapper.remove();
+          flightClone.remove();
           
           // Spawn beautiful landing sparkles and chime on the shelf slot!
           const shelfSlots = document.getElementById('game-shelf-slots');
