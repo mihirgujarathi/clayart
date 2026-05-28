@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heartstopper Clayart - Zero-G Interactive Showcase</title>
+  <meta name="description" content="A gorgeous, cozy, pastel 4-panel interactive mobile UI/UX showcase featuring zero-gravity playfulness.">
+  <!-- Google Fonts for cute, rounded clay aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=10.5">
+  <style>
+    /* Screen 1 Visual Novel Immersive Overrides */
+    .intro-layout {
+      position: relative !important;
+      justify-content: center !important;
+      align-items: center !important;
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .intro-header {
+      text-align: center !important;
+      margin-top: 10px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      height: 74% !important;
+      z-index: 10 !important;
+    }
+
+    .story-dialog-box {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 20px !important;
+      background: rgba(255, 255, 255, 0.72) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 2px solid rgba(255, 255, 255, 0.85) !important;
+      border-radius: 32px !important;
+      padding: 36px 20px !important;
+      box-shadow: 0 16px 36px rgba(61, 74, 65, 0.08) !important;
+      text-align: center !important;
+      width: 100% !important;
+      height: 100% !important;
+      animation: floatLogo 6s ease-in-out infinite !important;
+      cursor: pointer !important;
+      transition: transform 0.25s ease, border-color 0.25s ease !important;
+    }
+
+    .story-avatar {
+      width: 72px !important;
+      height: 72px !important;
+      min-width: 72px !important;
+      border-radius: 50% !important;
+      background: var(--color-pink-light) !important;
+      border: 2.5px solid var(--color-pink-dark) !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      box-shadow: var(--shadow-inset) !important;
+      margin-bottom: 8px !important;
+    }
+
+    .mini-avatar-clay {
+      width: 50px !important;
+      height: 50px !important;
+      filter: drop-shadow(0 2px 6px rgba(61,74,65,0.08)) !important;
+    }
+
+    .story-content {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      align-items: center !important;
+      flex-grow: 0 !important;
+      width: 100% !important;
+    }
+
+    .story-speaker {
+      font-family: var(--font-display) !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      color: var(--color-pink-deep) !important;
+      letter-spacing: 1.5px !important;
+      background: rgba(229, 178, 169, 0.2) !important;
+      padding: 4px 14px !important;
+      border-radius: 12px !important;
+      margin-bottom: 4px !important;
+    }
+
+    .story-text {
+      font-size: 1.62rem !important; /* LARGE COZY DIALOG TEXT */
+      line-height: 1.5 !important;
+      color: var(--color-sage-deep) !important;
+      font-weight: 700 !important;
+      transition: opacity 0.25s ease !important;
+      padding: 0 10px !important;
+    }
+
+    .illustration-container {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 100% !important;
+      height: 100% !important;
+      opacity: 0.38 !important; /* soft background girl illustration */
+      z-index: 1 !important;
+      pointer-events: none !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    /* Immersive Pinterest Game Mode Overrides: Hides emulators, notches, headers, returns */
+    .phone-notch,
+    .phone-status-bar,
+    .phone-home-bar,
+    .presentation-header,
+    .floating-grid-return,
+    .control-deck {
+      display: none !important;
+    }
+
+    /* Screen viewports dot scrapbook grid overlay */
+    .screen-viewport {
+      border-radius: 28px !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+
+    .screen-viewport::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background-image: radial-gradient(rgba(143, 164, 153, 0.12) 1.5px, transparent 1.5px) !important;
+      background-size: 16px 16px !important;
+      pointer-events: none !important;
+      z-index: 2 !important;
+    }
+
+    /* Polaroid/Pinterest Style Centered Card for Phones on Desktop */
+    .phone-mockup {
+      border: none !important;
+      box-shadow: 0 20px 50px rgba(61, 74, 65, 0.08) !important;
+      background: transparent !important;
+      width: 320px !important;
+      height: 640px !important;
+      border-radius: 28px !important;
+      cursor: default !important;
+      overflow: hidden !important;
+      transition: var(--transition-cozy) !important;
+      margin: 0 auto !important;
+    }
+
+    .phone-frame {
+      border-radius: 28px !important;
+      width: 100% !important;
+      height: 100% !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Perfect fullscreen on Mobile screens */
+    @media (max-width: 768px) {
+      .phone-mockup {
+        width: 100vw !important;
+        height: 100vh !important;
+        min-width: 100vw !important;
+        max-height: 100vh !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        border-radius: 0 !important;
+        z-index: 100 !important;
+        margin: 0 !important;
+      }
+
+      .phone-frame,
+      .screen-viewport {
+        border-radius: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+
+    /* Outer Scrapbook Doodles (Pinterest Vibe) */
+    .outer-doodle {
+      position: fixed !important;
+      pointer-events: none !important;
+      z-index: 50 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      animation: floatLogo 6s ease-in-out infinite alternate !important;
+    }
+
+    .doodle-cloud {
+      top: 15% !important;
+      left: 10% !important;
+      animation-duration: 8s !important;
+    }
+
+    .doodle-flower {
+      bottom: 20% !important;
+      right: 12% !important;
+      animation-duration: 7s !important;
+      animation-delay: 1s !important;
+    }
+
+    .doodle-polaroid {
+      top: 18% !important;
+      right: 8% !important;
+      animation: floatLogo 9s ease-in-out infinite alternate-reverse !important;
+      pointer-events: auto !important; /* Let them inspect or hover! */
+    }
+
+    .polaroid-clip {
+      font-size: 1.4rem !important;
+      margin-bottom: -8px !important;
+      z-index: 10 !important;
+      transform: rotate(-10deg) !important;
+    }
+
+    .polaroid-card {
+      background: #FAF8F4 !important;
+      padding: 10px 10px 14px 10px !important;
+      border-radius: 12px !important;
+      box-shadow: 0 10px 25px rgba(61, 74, 65, 0.06) !important;
+      border: 1px solid rgba(143, 164, 153, 0.15) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 6px !important;
+      transform: rotate(6deg) !important;
+      transition: transform 0.3s ease !important;
+    }
+
+    .polaroid-card:hover {
+      transform: rotate(-2deg) scale(1.05) !important;
+      box-shadow: 0 15px 35px rgba(61, 74, 65, 0.12) !important;
+    }
+
+    .polaroid-photo {
+      width: 76px !important;
+      height: 76px !important;
+      background: #EAF2EA !important;
+      border-radius: 6px !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      overflow: hidden !important;
+      border: 1px solid rgba(143, 164, 153, 0.1) !important;
+    }
+
+    .polaroid-photo svg {
+      width: 85% !important;
+      height: 85% !important;
+    }
+
+    .polaroid-caption {
+      font-family: var(--font-display) !important;
+      font-size: 0.65rem !important;
+      font-weight: 700 !important;
+      color: var(--color-sage-deep) !important;
+      opacity: 0.8 !important;
+    }
+
+    /* Washi Tape styling inside card */
+    .washi-tape {
+      position: absolute !important;
+      width: 75px !important;
+      height: 20px !important;
+      z-index: 100 !important;
+      pointer-events: none !important;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.01) !important;
+      opacity: 0.85 !important;
+    }
+
+    .tape-top-left {
+      top: -8px !important;
+      left: -15px !important;
+      transform: rotate(-15deg) !important;
+      background: rgba(229, 178, 169, 0.65) !important; /* Blush washi grid */
+      border: 1px dashed rgba(255, 255, 255, 0.5) !important;
+      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 2px, transparent 2px, transparent 4px) !important;
+    }
+
+    .tape-bottom-right {
+      bottom: -6px !important;
+      right: -12px !important;
+      transform: rotate(-8deg) !important;
+      background: rgba(143, 164, 153, 0.65) !important; /* Sage washi polka dot */
+      border: 1px dashed rgba(255, 255, 255, 0.5) !important;
+      background-image: radial-gradient(rgba(255,255,255,0.3) 1.2px, transparent 1.2px) !important;
+      background-size: 6px 6px !important;
+    }
+
+    /* Hide outer doodles on mobile viewports for clean focus */
+    @media (max-width: 1024px) {
+      .outer-doodle {
+        display: none !important;
+      }
+    }
+
+    /* Pinterest Polaroid Photo Card Overlay (Screen 1) */
+    .story-image-card {
+      position: absolute !important;
+      top: 32% !important; /* sit beautifully on top of the text */
+      left: 50% !important;
+      transform: translate(-50%, -50%) rotate(-4deg) scale(0.85) !important;
+      width: 170px !important; /* slightly smaller for clean fit */
+      background: #FAF8F4 !important;
+      padding: 8px 8px 12px 8px !important;
+      border-radius: 14px !important;
+      box-shadow: 0 12px 28px rgba(61, 74, 65, 0.15) !important;
+      border: 1px solid rgba(143, 164, 153, 0.18) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 6px !important;
+      z-index: 25 !important; /* in front of dialog container content */
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+
+    .story-image-card.visible {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: translate(-50%, -50%) rotate(3deg) scale(1) !important;
+      animation: floatPolaroid 5s ease-in-out infinite alternate !important;
+    }
+
+    @keyframes floatPolaroid {
+      0% { transform: translate(-50%, -50%) rotate(3deg) translateY(0px); }
+      100% { transform: translate(-50%, -50%) rotate(1deg) translateY(-6px); }
+    }
+
+    .story-image-tape {
+      position: absolute !important;
+      top: -10px !important;
+      left: 50% !important;
+      transform: translateX(-50%) rotate(-5deg) !important;
+      width: 70px !important;
+      height: 18px !important;
+      background: rgba(229, 178, 169, 0.85) !important; /* Soft blush tape */
+      border: 1px dashed rgba(255, 255, 255, 0.4) !important;
+      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 2px, transparent 2px, transparent 4px) !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
+    }
+
+    .story-image-frame {
+      width: 100% !important;
+      height: 140px !important; /* slightly smaller frame */
+      border-radius: 6px !important;
+      overflow: hidden !important;
+      border: 1px solid rgba(143, 164, 153, 0.1) !important;
+      background: #FAF8F4 !important;
+    }
+
+    .story-image-img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .story-image-caption {
+      font-family: var(--font-display) !important;
+      font-size: 0.8rem !important;
+      font-weight: 700 !important;
+      color: var(--color-sage-deep) !important;
+      opacity: 0.9 !important;
+      text-shadow: 0 1px 1px rgba(255,255,255,0.8) !important;
+    }
+
+    /* Dim vector illustration during image focus */
+    .illustration-container {
+      transition: opacity 0.4s ease !important;
+    }
+
+    .illustration-container.dimmed {
+      opacity: 0.05 !important;
+    }
+
+    /* Cozy avatar transition transitions */
+    .story-avatar {
+      transition: opacity 0.3s ease, transform 0.3s ease !important;
+    }
+
+    .story-avatar.hidden-avatar {
+      opacity: 0 !important;
+      transform: scale(0.8) !important;
+      pointer-events: none !important;
+    }
+
+    /* Playlist Selector Minimal List */
+    .playlist-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      margin: 10px 0 !important;
+      width: 100% !important;
+      z-index: 10 !important;
+    }
+
+    .playlist-item {
+      background: rgba(255, 255, 255, 0.45) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.65) !important;
+      border-radius: 16px !important;
+      padding: 10px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      cursor: pointer !important;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+      width: 100% !important;
+      text-align: left !important;
+      font-family: var(--font-body) !important;
+      box-shadow: 0 4px 10px rgba(61, 74, 65, 0.02) !important;
+    }
+
+    .playlist-item:hover {
+      background: rgba(255, 255, 255, 0.8) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .playlist-item.active {
+      background: #FAF8F4 !important;
+      border-color: var(--color-pink-dark) !important;
+      box-shadow: 0 6px 18px rgba(229, 178, 169, 0.18) !important;
+    }
+
+    .color-swatch { display: none !important; }
+
+    /* Left border accent color per track */
+    .playlist-item[data-track="still_with_you"] {
+      border-left: 4px solid #9B59B6 !important;
+    }
+    .playlist-item[data-track="rumbling"] {
+      border-left: 4px solid #C0392B !important;
+    }
+    .playlist-item[data-track="shinunoga_e_wa"] {
+      border-left: 4px solid #2C2C2C !important;
+    }
+    .playlist-item[data-track="still_with_you"].active {
+      background: rgba(155, 89, 182, 0.08) !important;
+      border-color: #9B59B6 !important;
+      box-shadow: 0 6px 18px rgba(155, 89, 182, 0.18) !important;
+    }
+    .playlist-item[data-track="rumbling"].active {
+      background: rgba(192, 57, 43, 0.08) !important;
+      border-color: #C0392B !important;
+      box-shadow: 0 6px 18px rgba(192, 57, 43, 0.18) !important;
+    }
+    .playlist-item[data-track="shinunoga_e_wa"].active {
+      background: rgba(44, 44, 44, 0.06) !important;
+      border-color: #2C2C2C !important;
+      box-shadow: 0 6px 18px rgba(44, 44, 44, 0.10) !important;
+    }
+
+    .track-text {
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
+      color: var(--color-sage-deep) !important;
+    }
+
+    /* Adjust player container size to take up good enough space! */
+    .player-container {
+      height: 320px !important;
+      margin: 10px 0 !important;
+      position: relative !important;
+    }
+
+    .music-polaroid-card {
+      position: absolute !important;
+      top: 10px !important;
+      left: calc(50% - 178px) !important;
+      width: 110px !important;
+      background: #FAF8F4 !important;
+      padding: 6px 6px 10px 6px !important;
+      border-radius: 10px !important;
+      box-shadow: 0 14px 32px rgba(61, 74, 65, 0.16) !important;
+      border: 1px solid rgba(143, 164, 153, 0.15) !important;
+      transform: rotate(-10deg) scale(0) !important;
+      transform-origin: center bottom !important;
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      z-index: 10 !important;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .music-polaroid-card.visible {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: rotate(-8deg) scale(1) !important;
+      animation: floatPolaroidSmall 5s ease-in-out infinite alternate !important;
+    }
+
+    @keyframes floatPolaroidSmall {
+      0% { transform: rotate(-8deg) translateY(0px) scale(1); }
+      100% { transform: rotate(-5deg) translateY(-7px) scale(1); }
+    }
+
+    .music-polaroid-frame {
+      width: 100% !important;
+      height: 90px !important;
+      border-radius: 6px !important;
+      overflow: hidden !important;
+      border: 1px solid rgba(143, 164, 153, 0.08) !important;
+      background: #FAF8F4 !important;
+    }
+
+    .music-polaroid-frame img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .music-polaroid-card .story-image-tape {
+      position: absolute !important;
+      top: -10px !important;
+      left: 50% !important;
+      transform: translateX(-50%) rotate(-6deg) !important;
+      width: 40px !important;
+      height: 12px !important;
+      background: rgba(229, 178, 169, 0.85) !important; /* Soft blush tape */
+      border: 1px dashed rgba(255, 255, 255, 0.4) !important;
+      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 2px, transparent 2px, transparent 4px) !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
+      transition: background 0.8s ease !important;
+    }
+
+    /* Dynamic washi tape colors per song theme */
+    .screen-viewport.bg-still_with_you .music-polaroid-card .story-image-tape {
+      background: rgba(155, 89, 182, 0.6) !important;
+    }
+    .screen-viewport.bg-rumbling .music-polaroid-card .story-image-tape {
+      background: rgba(192, 57, 43, 0.6) !important;
+    }
+    .screen-viewport.bg-shinunoga_e_wa .music-polaroid-card .story-image-tape {
+      background: rgba(229, 178, 169, 0.85) !important; /* Classic blush tape */
+    }
+
+    .svg-record-player {
+      width: 310px !important;
+      height: 310px !important;
+    }
+
+    /* Platter Placeholder guide styling */
+    .placeholder-guide {
+      transition: opacity 0.4s ease !important;
+      pointer-events: none !important;
+    }
+
+    .placeholder-guide.hidden-guide {
+      opacity: 0 !important;
+    }
+
+    /* Vinyl Disc Loading Animation */
+    .vinyl-disc {
+      transform-origin: 125px 140px !important;
+      opacity: 0 !important;
+      transform: scale(0.3) rotate(-120deg) !important;
+      transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.8s ease !important;
+      pointer-events: none !important;
+    }
+
+    .vinyl-disc.loaded {
+      opacity: 1 !important;
+      transform: scale(1) rotate(0deg) !important;
+      pointer-events: auto !important;
+    }
+
+    /* Rotating animation when loaded and playing */
+    .vinyl-disc.loaded.playing {
+      animation: rotateVinyl 8s linear infinite !important;
+    }
+
+    /* Rest tone arm when not loaded */
+    .tone-arm-group {
+      transform-origin: 210px 80px !important;
+      transform: rotate(0deg) !important;
+      transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+
+    .tone-arm-group.playing {
+      transform: rotate(26deg) !important;
+    }
+
+    /* Dynamic Screen Viewport Background transitions */
+    .screen-viewport.screen-beige {
+      transition: background 1.2s cubic-bezier(0.25, 1, 0.5, 1), color 0.8s ease !important;
+    }
+
+    /* Still With You: Deep dreamy purple night */
+    .screen-viewport.screen-beige.bg-still_with_you {
+      background: linear-gradient(160deg, #1e1030 0%, #2d1b4e 45%, #1a0f28 100%) !important;
+    }
+
+    .screen-viewport.screen-beige.bg-still_with_you .screen-title,
+    .screen-viewport.screen-beige.bg-still_with_you .track-title,
+    .screen-viewport.screen-beige.bg-still_with_you .track-artist,
+    .screen-viewport.screen-beige.bg-still_with_you .headphones-hint,
+    .screen-viewport.screen-beige.bg-still_with_you .header-pre,
+    .screen-viewport.screen-beige.bg-still_with_you .header-post {
+      color: #e8d5f5 !important;
+      opacity: 0.95 !important;
+    }
+
+    .screen-viewport.screen-beige.bg-still_with_you .playlist-sticker {
+      background: rgba(155, 89, 182, 0.18) !important;
+      border-color: rgba(155, 89, 182, 0.35) !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .screen-viewport.screen-beige.bg-still_with_you .sticker-name {
+      color: #e8d5f5 !important;
+    }
+
+    .screen-viewport.screen-beige.bg-still_with_you .audio-controls {
+      background: rgba(155, 89, 182, 0.15) !important;
+      border-color: rgba(155, 89, 182, 0.3) !important;
+    }
+
+    .screen-viewport.screen-beige.bg-still_with_you .track-text {
+      color: #e8d5f5 !important;
+    }
+    .screen-viewport.screen-beige.bg-still_with_you .playlist-item {
+      background: rgba(255,255,255,0.06) !important;
+    }
+
+    /* Rumbling: Intense deep crimson red */
+    .screen-viewport.screen-beige.bg-rumbling {
+      background: linear-gradient(160deg, #2a0a08 0%, #4a1010 45%, #1c0606 100%) !important;
+    }
+
+    .screen-viewport.screen-beige.bg-rumbling .screen-title,
+    .screen-viewport.screen-beige.bg-rumbling .track-title,
+    .screen-viewport.screen-beige.bg-rumbling .track-artist,
+    .screen-viewport.screen-beige.bg-rumbling .headphones-hint,
+    .screen-viewport.screen-beige.bg-rumbling .header-pre,
+    .screen-viewport.screen-beige.bg-rumbling .header-post {
+      color: #fde8e8 !important;
+      opacity: 0.95 !important;
+    }
+
+    .screen-viewport.screen-beige.bg-rumbling .playlist-sticker {
+      background: rgba(192, 57, 43, 0.18) !important;
+      border-color: rgba(192, 57, 43, 0.35) !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .screen-viewport.screen-beige.bg-rumbling .sticker-name {
+      color: #fde8e8 !important;
+    }
+
+    .screen-viewport.screen-beige.bg-rumbling .audio-controls {
+      background: rgba(192, 57, 43, 0.15) !important;
+      border-color: rgba(192, 57, 43, 0.3) !important;
+    }
+
+    .screen-viewport.screen-beige.bg-rumbling .track-text {
+      color: #fde8e8 !important;
+    }
+    .screen-viewport.screen-beige.bg-rumbling .playlist-item {
+      background: rgba(255,255,255,0.06) !important;
+    }
+
+    /* Shinunoga E-Wa: Deep slate charcoal */
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa {
+      background: linear-gradient(160deg, #141414 0%, #1e1e1e 45%, #0d0d0d 100%) !important;
+    }
+
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .screen-title,
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .track-title,
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .track-artist,
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .headphones-hint,
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .header-pre,
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .header-post {
+      color: #d4d0c8 !important;
+      opacity: 0.95 !important;
+    }
+
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .playlist-sticker {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.14) !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .sticker-name {
+      color: #d4d0c8 !important;
+    }
+
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .track-text {
+      color: #d4d0c8 !important;
+    }
+    .screen-viewport.screen-beige.bg-shinunoga_e_wa .playlist-item {
+      background: rgba(255,255,255,0.05) !important;
+    }
+    
+    /* SCREEN 3 — CREATION PICKER */
+    .picker-layout { display: flex !important; flex-direction: column !important; gap: 10px !important; padding: 14px 12px !important; overflow-y: auto !important; height: 100% !important; }
+    .picker-header { text-align: center !important; padding-bottom: 2px !important; }
+    .picker-header .screen-title { font-size: 1.2rem !important; line-height: 1.3 !important; margin: 4px 0 !important; }
+    .picker-header .desc { font-size: 0.7rem !important; opacity: 0.75 !important; }
+    .creation-cards-grid { display: flex !important; flex-direction: column !important; gap: 10px !important; flex: 1 !important; }
+    .creation-card { background: rgba(255,255,255,0.72) !important; backdrop-filter: blur(12px) !important; border: 1.5px solid rgba(143,164,153,0.2) !important; border-radius: 20px !important; padding: 10px 12px !important; display: flex !important; align-items: center !important; gap: 12px !important; cursor: pointer !important; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1) !important; text-align: left !important; font-family: var(--font-body) !important; box-shadow: 0 4px 16px rgba(61,74,65,0.06) !important; width: 100% !important; }
+    .creation-card:hover { transform: translateY(-3px) scale(1.01) !important; box-shadow: 0 10px 28px rgba(61,74,65,0.12) !important; border-color: rgba(143,164,153,0.45) !important; background: rgba(255,255,255,0.9) !important; }
+    .creation-card:active { transform: scale(0.98) !important; }
+    .creation-card-art { width: 62px !important; height: 62px !important; flex-shrink: 0 !important; border-radius: 14px !important; background: var(--color-beige) !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 4px !important; overflow: hidden !important; }
+    .creation-svg { width: 100% !important; height: 100% !important; filter: drop-shadow(0 2px 4px rgba(61,74,65,0.08)) !important; }
+    .creation-card-info { flex: 1 !important; display: flex !important; flex-direction: column !important; gap: 3px !important; }
+    .creation-name { font-family: var(--font-display) !important; font-size: 0.92rem !important; font-weight: 700 !important; color: var(--color-sage-deep) !important; }
+    .creation-tagline { font-size: 0.67rem !important; color: #8A9E93 !important; line-height: 1.4 !important; }
+    .creation-card-cta { font-size: 0.67rem !important; font-weight: 700 !important; color: var(--color-pink-dark) !important; font-family: var(--font-display) !important; opacity: 0.85 !important; white-space: nowrap !important; }
+    .creation-card:hover .creation-card-cta { opacity: 1 !important; }
+
+    /* SCREEN 3.5 — CLAY STEPS */
+    .steps-layout { display: flex !important; flex-direction: column !important; gap: 8px !important; padding: 10px 12px 12px !important; height: 100% !important; overflow: hidden !important; }
+    .steps-header { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 8px !important; }
+    .steps-back-btn { background: rgba(255,255,255,0.65) !important; border: 1px solid rgba(143,164,153,0.2) !important; border-radius: 10px !important; padding: 5px 10px !important; font-size: 0.7rem !important; font-family: var(--font-body) !important; font-weight: 600 !important; color: var(--color-sage-deep) !important; cursor: pointer !important; display: flex !important; align-items: center !important; gap: 4px !important; transition: background 0.2s ease !important; }
+    .steps-back-btn:hover { background: rgba(255,255,255,0.9) !important; }
+    .steps-object-title-row { display: flex !important; align-items: center !important; gap: 6px !important; }
+    .steps-object-emoji { font-size: 1.25rem !important; }
+    .steps-object-name { font-family: var(--font-display) !important; font-size: 0.95rem !important; font-weight: 700 !important; color: var(--color-sage-deep) !important; }
+    .steps-dots-row { display: flex !important; align-items: center !important; justify-content: center !important; gap: 6px !important; }
+    .step-dot { width: 8px !important; height: 8px !important; border-radius: 50% !important; background: rgba(143,164,153,0.3) !important; transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1) !important; cursor: pointer !important; }
+    .step-dot.done { background: #8FA499 !important; transform: scale(1.1) !important; }
+    .step-dot.active { background: var(--color-pink-dark) !important; transform: scale(1.4) !important; box-shadow: 0 0 0 3px rgba(229,178,169,0.3) !important; }
+    
+    /* Game Canvas Area */
+    .game-area { flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; position: relative !important; border-radius: 16px !important; background: rgba(255,255,255,0.55) !important; backdrop-filter: blur(8px) !important; border: 1px solid rgba(143,164,153,0.15) !important; overflow: hidden !important; min-height: 140px !important; user-select: none !important; -webkit-user-select: none !important; touch-action: none !important; }
+    .game-area:active { cursor: grabbing !important; }
+    .game-shelf { position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; display: flex !important; align-items: center !important; gap: 6px !important; padding: 6px 8px !important; background: rgba(143,164,153,0.08) !important; border-bottom: 1px solid rgba(143,164,153,0.12) !important; z-index: 5 !important; min-height: 42px !important; }
+    .game-shelf-label { font-family: var(--font-display) !important; font-size: 0.55rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 1px !important; color: #8A9E93 !important; white-space: nowrap !important; }
+    .game-shelf-slots { display: flex !important; gap: 4px !important; flex-wrap: wrap !important; }
+    .game-shelf-part { width: 32px !important; height: 32px !important; border-radius: 8px !important; background: rgba(255,255,255,0.7) !important; border: 1.5px solid rgba(143,164,153,0.2) !important; display: flex !important; align-items: center !important; justify-content: center !important; animation: shelfPartAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important; box-shadow: 0 2px 6px rgba(61,74,65,0.08) !important; cursor: grab !important; touch-action: none !important; user-select: none !important; }
+    .game-shelf-part svg { width: 22px !important; height: 22px !important; pointer-events: none !important; }
+    @keyframes shelfPartAppear { 0% { opacity: 0; transform: scale(0.3) translateY(-20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+    
+    .game-clay-svg { position: absolute !important; top: 55% !important; left: 50% !important; transform: translate(-50%, -50%) !important; display: flex !important; align-items: center !important; justify-content: center !important; pointer-events: none !important; z-index: 3 !important; }
+    .game-clay-svg.floating-bob { animation: svgFloat 3s ease-in-out infinite !important; }
+    @keyframes svgFloat { 0%,100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-4px); } }
+    .game-clay-svg.transitioning { animation: svgStepTransition 0.4s ease-in-out !important; }
+    @keyframes svgStepTransition { 0% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0; transform: translate(-50%, -50%) scale(0.8) translateY(10px); } 51% { opacity: 0; } 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+    .game-clay-svg.fly-to-shelf { animation: flyToShelf 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards !important; pointer-events: none !important; }
+    @keyframes flyToShelf {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); filter: drop-shadow(0 6px 16px rgba(61,74,65,0.18)); }
+      20% { opacity: 1; transform: translate(-50%, -43%) scale(1.08) rotate(-6deg); filter: drop-shadow(0 10px 20px rgba(61,74,65,0.22)); }
+      100% { opacity: 0; transform: translate(-50%, -230px) scale(0.05) rotate(45deg); filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+    }
+    
+    .game-progress-bar { position: absolute !important; bottom: 30px !important; left: 12px !important; right: 12px !important; height: 4px !important; background: rgba(143,164,153,0.15) !important; border-radius: 2px !important; overflow: hidden !important; z-index: 3 !important; }
+    .game-progress-fill { height: 100% !important; width: 0% !important; background: linear-gradient(90deg, #8FA499, var(--color-pink-dark)) !important; border-radius: 2px !important; transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important; }
+    .game-action-label { position: absolute !important; bottom: 10px !important; left: 50% !important; transform: translateX(-50%) !important; font-family: var(--font-body) !important; font-size: 0.65rem !important; font-weight: 600 !important; color: var(--color-sage-deep) !important; opacity: 0.7 !important; background: rgba(255,255,255,0.7) !important; padding: 3px 10px !important; border-radius: 8px !important; pointer-events: none !important; white-space: nowrap !important; z-index: 2 !important; }
+    .game-complete-badge { position: absolute !important; top: 50px !important; right: 8px !important; display: flex !important; align-items: center !important; gap: 4px !important; font-family: var(--font-body) !important; font-size: 0.65rem !important; font-weight: 700 !important; color: white !important; background: #8FA499 !important; padding: 4px 10px !important; border-radius: 8px !important; opacity: 0 !important; transform: scale(0.8) !important; transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1) !important; pointer-events: none !important; z-index: 3 !important; }
+    .game-complete-badge.visible { opacity: 1 !important; transform: scale(1) !important; }
+    .game-ripple { position: absolute !important; border-radius: 50% !important; background: radial-gradient(circle, rgba(229,178,169,0.35) 0%, transparent 70%) !important; pointer-events: none !important; transform: translate(-50%, -50%) scale(0) !important; animation: rippleExpand 0.6s ease-out forwards !important; z-index: 2 !important; }
+    @keyframes rippleExpand { 0% { transform: translate(-50%, -50%) scale(0); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(3); opacity: 0; } }
+    .game-sparkle { position: absolute !important; width: 6px !important; height: 6px !important; border-radius: 50% !important; pointer-events: none !important; animation: sparkleFloat 0.7s ease-out forwards !important; z-index: 4 !important; }
+    @keyframes sparkleFloat { 0% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -50%) translateY(-20px) scale(0); } }
+    
+    .confetti-particle {
+      position: absolute !important;
+      pointer-events: none !important;
+      z-index: 150 !important;
+    }
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(280px) rotate(180deg) translateX(var(--drift-x));
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(580px) rotate(var(--rotate-z)) translateX(calc(var(--drift-x) * 1.8));
+        opacity: 0;
+      }
+    }
+    
+    /* Dramatic Space Screen & Author Message Styling */
+    .screen-dramatic {
+      background: linear-gradient(180deg, #090514 0%, #0d0b21 50%, #17123a 100%) !important;
+      overflow: hidden !important;
+    }
+    .message-galaxy-bg {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+    .dramatic-glow-1 {
+      width: 280px !important;
+      height: 280px !important;
+      background-color: rgba(229,178,169,0.2) !important; /* Soft blushing nebula */
+      top: 10% !important;
+      left: -10% !important;
+      filter: blur(80px) !important;
+      animation: floatAmbient 12s ease-in-out infinite alternate !important;
+    }
+    .dramatic-glow-2 {
+      width: 250px !important;
+      height: 250px !important;
+      background-color: rgba(143,164,153,0.15) !important; /* Soft deep teal green glow */
+      bottom: 15% !important;
+      right: -10% !important;
+      filter: blur(80px) !important;
+      animation: floatAmbient 15s ease-in-out infinite alternate-reverse !important;
+    }
+    .svg-message-stars {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+    .star-blink-1 { animation: starPulse 3s infinite alternate; }
+    .star-blink-2 { animation: starPulse 2.5s infinite alternate 0.5s; }
+    .star-blink-3 { animation: starPulse 4s infinite alternate 1s; }
+    .star-blink-4 { animation: starPulse 3.5s infinite alternate 1.5s; }
+    @keyframes starPulse {
+      0% { opacity: 0.2; transform: scale(0.8); }
+      100% { opacity: 0.9; transform: scale(1.2); }
+    }
+    .message-layout {
+      justify-content: center !important;
+      align-items: center !important;
+      height: 100% !important;
+      z-index: 10 !important;
+    }
+    .message-card-wrapper {
+      position: relative !important;
+      background: rgba(255, 255, 255, 0.88) !important;
+      backdrop-filter: blur(12px) !important;
+      border: 2px solid rgba(255, 255, 255, 0.95) !important;
+      border-radius: 24px !important;
+      padding: 24px 18px !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3) !important;
+      width: 100% !important;
+      max-width: 280px !important;
+      animation: floatLogo 5s ease-in-out infinite alternate !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+    .message-card-header {
+      text-align: center !important;
+    }
+    .message-card-header h3 {
+      font-family: var(--font-display) !important;
+      font-size: 1.05rem !important;
+      font-weight: 800 !important;
+      color: var(--color-sage-deep) !important;
+      margin-top: 4px !important;
+    }
+    .message-card-emoji {
+      font-size: 1.8rem !important;
+    }
+    .message-card-body {
+      font-family: var(--font-body) !important;
+      font-size: 0.78rem !important;
+      line-height: 1.5 !important;
+      color: var(--color-sage-deep) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+    .letter-paragraph {
+      margin: 0 !important;
+      text-indent: 6px !important;
+    }
+    .message-card-actions {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      margin-top: 6px !important;
+    }
+    .message-card-actions .action-btn {
+      padding: 9px 16px !important;
+      font-size: 0.76rem !important;
+      border-radius: 14px !important;
+    }
+    
+    .step-card { background: rgba(255,255,255,0.82) !important; backdrop-filter: blur(12px) !important; border: 1.5px solid rgba(143,164,153,0.2) !important; border-radius: 18px !important; padding: 12px 14px !important; box-shadow: 0 6px 20px rgba(61,74,65,0.08) !important; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease !important; }
+    .step-card.animating-out { transform: translateX(-22px) !important; opacity: 0 !important; }
+    .step-card.animating-in { transform: translateX(22px) !important; opacity: 0 !important; }
+    .step-card-inner { display: flex !important; flex-direction: column !important; gap: 5px !important; }
+    .step-number-badge { font-family: var(--font-display) !important; font-size: 0.62rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 1px !important; color: var(--color-pink-dark) !important; background: rgba(229,178,169,0.2) !important; padding: 2px 10px !important; border-radius: 8px !important; width: fit-content !important; }
+    .step-tool-tag { font-size: 0.68rem !important; font-weight: 600 !important; color: #8A9E93 !important; font-family: var(--font-body) !important; }
+    .step-instruction { font-size: 0.78rem !important; font-family: var(--font-body) !important; color: var(--color-sage-deep) !important; line-height: 1.5 !important; margin: 0 !important; }
+    .step-check-btn { align-self: flex-end !important; display: flex !important; align-items: center !important; gap: 5px !important; background: rgba(143,164,153,0.15) !important; border: 1.5px solid rgba(143,164,153,0.3) !important; border-radius: 10px !important; padding: 5px 12px !important; font-size: 0.7rem !important; font-weight: 700 !important; font-family: var(--font-body) !important; color: var(--color-sage-deep) !important; cursor: pointer !important; transition: all 0.25s ease !important; }
+    .step-check-btn:hover { background: rgba(143, 153, 148, 0.3) !important; transform: scale(1.04) !important; }
+    .step-check-btn.checked { background: rgba(143,164,153,0.85) !important; border-color: #8FA499 !important; color: white !important; }
+    .step-card-compact { padding: 8px 12px !important; margin-top: 6px !important; }
+    .step-card-compact .step-card-inner { gap: 3px !important; }
+    .step-card-compact .step-instruction { font-size: 0.72rem !important; line-height: 1.4 !important; }
+    .steps-nav { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 8px !important; }
+    .step-nav-btn { display: flex !important; align-items: center !important; gap: 5px !important; background: rgba(255,255,255,0.7) !important; border: 1.5px solid rgba(143,164,153,0.25) !important; border-radius: 12px !important; padding: 7px 14px !important; font-size: 0.73rem !important; font-weight: 700 !important; font-family: var(--font-body) !important; color: var(--color-sage-deep) !important; cursor: pointer !important; transition: all 0.25s ease !important; }
+    .step-nav-btn:hover:not(:disabled) { background: rgba(255,255,255,0.95) !important; transform: translateY(-2px) !important; }
+    .step-nav-btn:disabled { opacity: 0.35 !important; cursor: not-allowed !important; }
+    .step-nav-btn.next { background: #E5B2A9 !important; border-color: #E5B2A9 !important; color: #3D4A41 !important; }
+    .step-nav-btn.next:disabled { background: rgba(229,178,169,0.2) !important; border-color: rgba(143,164,153,0.15) !important; color: rgba(61,74,65,0.35) !important; opacity: 1 !important; }
+    .step-nav-btn.next.finish { background: #8FA499 !important; border-color: #8FA499 !important; color: #3D4A41 !important; }
+    .step-nav-btn.next.finish:disabled { background: rgba(143,164,153,0.2) !important; border-color: rgba(143,164,153,0.15) !important; color: rgba(61,74,65,0.35) !important; opacity: 1 !important; }
+    .step-counter { font-family: var(--font-display) !important; font-size: 0.78rem !important; font-weight: 700 !important; color: var(--color-sage-deep) !important; opacity: 0.7 !important; }
+
+    /* Game-like Step Enhancements & Interactive Tools */
+    .shutter-flash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .shutter-flash.flash-active {
+      animation: cameraFlashAnim 0.5s ease-out forwards;
+    }
+    @keyframes cameraFlashAnim {
+      0% { opacity: 0; }
+      15% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    
+    .polaroid-modal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(61, 74, 65, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .polaroid-modal.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .polaroid-modal-card {
+      background: #FAF8F4;
+      padding: 10px 10px 18px 10px;
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(61, 74, 65, 0.25);
+      border: 1px solid rgba(143, 164, 153, 0.15);
+      width: 100%;
+      max-width: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      transform: scale(0.8) rotate(-4deg);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+    .polaroid-modal.visible .polaroid-modal-card {
+      transform: scale(1) rotate(2deg);
+      animation: floatPolaroidSmall 5s ease-in-out infinite alternate;
+    }
+    .polaroid-modal-photo {
+      width: 100%;
+      height: 180px;
+      background: #EAF2EA;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(143, 164, 153, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      position: relative;
+    }
+    .polaroid-modal-photo svg {
+      width: 90%;
+      height: 90%;
+      filter: drop-shadow(0 4px 8px rgba(61,74,65,0.12));
+    }
+    .polaroid-modal-caption {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-sage-deep);
+      text-align: center;
+      margin-top: 6px;
+      text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+    }
+    .polaroid-modal-author {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--color-pink-deep);
+      font-family: var(--font-body);
+      margin-top: -2px;
+      opacity: 0.85;
+    }
+    .polaroid-modal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      max-width: 250px;
+      margin-top: 14px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s ease 0.2s;
+    }
+    .polaroid-modal.visible .polaroid-modal-buttons {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .polaroid-modal-buttons .action-btn {
+      padding: 10px 18px;
+      font-size: 0.85rem;
+    }
+    
+    /* Rolling pin hovering styling */
+    .game-rolling-pin {
+      position: absolute;
+      width: 130px;
+      height: 40px;
+      pointer-events: none;
+      z-index: 10;
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 6px 12px rgba(61,74,65,0.15));
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .game-rolling-pin.active {
+      opacity: 1;
+    }
+    
+    /* Clay knife carving tool hovering */
+    .game-clay-knife {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      pointer-events: none;
+      z-index: 10;
+      transform: translate(-50%, -50%) rotate(15deg);
+      filter: drop-shadow(0 6px 12px rgba(61,74,65,0.15));
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .game-clay-knife.active {
+      opacity: 1;
+    }
+    
+    /* Hand indicators squishing */
+    .knead-hand-indicator {
+      position: absolute;
+      font-size: 1.8rem;
+      pointer-events: none;
+      z-index: 8;
+      transition: all 0.2s ease;
+      opacity: 0;
+    }
+    .knead-hand-indicator.active {
+      opacity: 0.75;
+      animation: kneadingAction 0.6s ease-in-out infinite alternate;
+    }
+    @keyframes kneadingAction {
+      0% { transform: translate(-10px, 0) scale(1); }
+      100% { transform: translate(10px, 0) scale(0.9); }
+    }
+    
+    /* Drag clone representation */
+    .dragging-clone {
+      position: absolute !important;
+      width: 50px !important;
+      height: 50px !important;
+      pointer-events: none !important;
+      z-index: 100 !important;
+      transform: translate(-50%, -50%) scale(1.15) !important;
+      filter: drop-shadow(0 10px 20px rgba(61,74,65,0.25)) !important;
+      transition: transform 0.08s ease !important;
+    }
+    .dragging-clone.slide-back {
+      transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+      transform: translate(-50%, -50%) scale(0.6) !important;
+      opacity: 0.5 !important;
+    }
+    
+    /* Silhouette targets */
+    .assembly-container {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 160px;
+      height: 160px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .assembly-silhouette {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+      filter: grayscale(1) contrast(0.5);
+      stroke-dasharray: 4,4;
+      pointer-events: none;
+    }
+    .assembly-silhouette svg {
+      width: 100%;
+      height: 100%;
+    }
+    .assembly-placed-parts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .assembly-placed-part {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      animation: snapPiecePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes snapPiecePop {
+      0% { transform: translate(-50%, -50%) scale(0.4); opacity: 0; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+    
+    /* Interactive clay crack lines */
+    .clay-crack {
+      stroke: #3D4A41;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+      animation: crackReveal 0.25s ease-out forwards;
+    }
+    @keyframes crackReveal {
+      0% { stroke-dasharray: 20; stroke-dashoffset: 20; }
+      100% { stroke-dasharray: 20; stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light and Gravity-Defying Background -->
+  <div class="space-background">
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="particle-container" id="bg-particles"></div>
+  </div>
+
+  <!-- Main Presentation Container -->
+  <main class="presentation-wrapper">
+
+    <!-- OUTSIDE DOODLES (PINTEREST SCRAPBOOK STYLE) -->
+    <!-- Cozy Cloud -->
+    <div class="outer-doodle doodle-cloud">
+      <svg viewBox="0 0 100 80" width="70" height="55">
+        <path d="M20,50 Q10,50 15,35 Q10,20 25,20 Q35,5 55,10 Q75,5 80,25 Q90,30 85,45 Q90,55 75,55 Q65,60 55,55 Q40,60 25,55 Z" fill="#FAF8F4" stroke="#8FA499" stroke-width="2.5" />
+        <circle cx="42" cy="35" r="2.5" fill="#3D4A41" />
+        <circle cx="58" cy="35" r="2.5" fill="#3D4A41" />
+        <path d="M47,42 Q50,45 53,42" stroke="#3D4A41" stroke-width="1.5" stroke-linecap="round" fill="none" />
+      </svg>
+    </div>
+
+    <!-- Cozy Daisy Flower -->
+    <div class="outer-doodle doodle-flower">
+      <svg viewBox="0 0 100 100" width="60" height="60">
+        <path d="M50,30 Q50,10 60,20 Q70,30 50,40" fill="#FADBD8" stroke="#8FA499" stroke-width="2.5" />
+        <path d="M60,40 Q80,35 75,45 Q70,55 50,50" fill="#FADBD8" stroke="#8FA499" stroke-width="2.5" />
+        <path d="M50,60 Q50,80 40,70 Q30,60 50,50" fill="#FADBD8" stroke="#8FA499" stroke-width="2.5" />
+        <path d="M40,50 Q20,55 25,45 Q30,35 50,40" fill="#FADBD8" stroke="#8FA499" stroke-width="2.5" />
+        <circle cx="50" cy="45" r="10" fill="#FAF8F4" stroke="#8FA499" stroke-width="2.5" />
+        <circle cx="47" cy="42" r="1.5" fill="#3D4A41" />
+        <circle cx="52" cy="42" r="1.5" fill="#3D4A41" />
+        <path d="M48,46 Q50,48 52,46" stroke="#3D4A41" stroke-width="1.2" stroke-linecap="round" fill="none" />
+      </svg>
+    </div>
+
+    <!-- Hanging Polaroid Avocado Photo -->
+    <div class="outer-doodle doodle-polaroid">
+      <div class="polaroid-clip">📌</div>
+      <div class="polaroid-card">
+        <div class="polaroid-photo">
+          <svg viewBox="0 0 100 100">
+            <path d="M50,20 C62,20 66,38 68,52 C70,66 65,76 50,76 C35,76 30,66 32,52 C34,38 38,20 50,20 Z" fill="#758B7C" />
+            <path d="M50,26 C59,26 62,40 63,51 C64,62 59,71 50,71 C41,71 36,62 37,51 C38,40 41,26 50,26 Z" fill="#D5E5D5" />
+            <circle cx="50" cy="53" r="9" fill="#E5B2A9" />
+            <circle cx="47" cy="50" r="1.2" fill="#3D4A41" />
+            <circle cx="53" cy="50" r="1.2" fill="#3D4A41" />
+            <path d="M48,54 Q50,56 52,54" stroke="#3D4A41" stroke-width="0.8" stroke-linecap="round" fill="none" />
+          </svg>
+        </div>
+        <span class="polaroid-caption">beef master 🫗</span>
+      </div>
+    </div>
+    
+    <!-- Top Header and Presentation Controls -->
+    <header class="presentation-header">
+      <div class="header-logo">
+        <svg viewBox="0 0 100 100" class="logo-clay">
+          <path d="M 50,20 C 35,5 15,15 15,35 C 15,60 50,85 50,85 C 50,85 85,60 85,35 C 85,15 65,5 50,20 Z" fill="#E5B2A9" />
+          <circle cx="40" cy="35" r="3" fill="#3D4A41" />
+          <circle cx="60" cy="35" r="3" fill="#3D4A41" />
+          <path d="M 45,43 Q 50,47 55,43" stroke="#3D4A41" stroke-width="2" stroke-linecap="round" fill="none" />
+        </svg>
+        <div class="logo-text">
+          <h1>Heartstopper</h1>
+          <span class="subtitle">Clayart Zero-G Lab</span>
+        </div>
+      </div>
+      <p class="header-tagline">Explore a cute, cozy, weightless world of clay crafting. Pick a screen to interact or check out the full presentation.</p>
+      
+      <!-- Control Deck -->
+      <div class="control-deck">
+        <button class="control-btn active" id="view-grid-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          Showcase View
+        </button>
+        <button class="control-btn" id="view-intro-btn">Screen 1: Intro</button>
+        <button class="control-btn" id="view-music-btn">Screen 2: Music</button>
+        <button class="control-btn" id="view-gallery-btn">Screen 3: Gallery</button>
+      </div>
+    </header>
+
+    <!-- Showcase Area for side-by-side phones -->
+    <section class="phones-showcase" id="phones-container">
+
+      <!-- PHONE 1: INTRO SCREEN -->
+      <div class="phone-mockup" id="phone-intro">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-status-bar">
+            <span class="status-time">10:10</span>
+            <div class="status-icons">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.07 19.67 10.48 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+            </div>
+          </div>
+
+          <!-- SCREEN VIEWPORT -->
+          <div class="screen-viewport screen-sage">
+            <div class="screen-glow"></div>
+            
+            <!-- Intro Content -->
+            <div class="screen-content intro-layout">
+              <div class="intro-header" id="intro-story-header">
+                <div class="story-dialog-box" id="story-dialog">
+                  <!-- Cozy Washi Tapes! -->
+                  <div class="washi-tape tape-top-left"></div>
+                  <div class="washi-tape tape-bottom-right"></div>
+                  
+                  <div class="story-avatar" id="story-avatar-container">
+                    <svg viewBox="0 0 100 100" class="mini-avatar-clay">
+                      <!-- Cat head -->
+                      <circle cx="50" cy="52" r="34" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/>
+                      <!-- Ears -->
+                      <path d="M 24,32 L 18,10 L 38,22 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M 76,32 L 82,10 L 62,22 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/>
+                      <!-- Inner Ears (pink) -->
+                      <path d="M 26,27 L 22,15 L 34,21 Z" fill="#E5B2A9" />
+                      <path d="M 74,27 L 78,15 L 66,21 Z" fill="#E5B2A9" />
+                      <!-- Happy Closed Eyes -->
+                      <path d="M 34,48 Q 40,53 40,48" stroke="#3D4A41" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                      <path d="M 66,48 Q 60,53 60,48" stroke="#3D4A41" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                      <!-- Nose -->
+                      <polygon points="48,54 52,54 50,57" fill="#E5B2A9"/>
+                      <!-- Cute Mouth wiggles -->
+                      <path d="M 46,60 Q 50,63 50,60 Q 50,63 54,60" stroke="#3D4A41" stroke-width="2" stroke-linecap="round" fill="none" />
+                      <!-- Blush cheeks -->
+                      <circle cx="28" cy="56" r="5" fill="#FADBD8" opacity="0.9"/>
+                      <circle cx="72" cy="56" r="5" fill="#FADBD8" opacity="0.9"/>
+                    </svg>
+                  </div>
+                  <div class="story-content">
+                    <span class="story-speaker">WellWisher M</span>
+                    <p class="story-text" id="story-text-display">Welcome Pranjal (goldfish)....</p>
+                  </div>
+
+                  <!-- Story Image Popup (Pinterest scrapbook style) -->
+                  <div class="story-image-card" id="story-image-container">
+                    <div class="story-image-tape"></div>
+                    <div class="story-image-frame">
+                      <img src="assets/strawberry_cats.png" alt="Strawberry Cats" class="story-image-img">
+                    </div>
+                    <span class="story-image-caption">Together 🤝</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Floating Girl & Heart Clay Illustration -->
+              <div class="illustration-container" id="intro-illustration">
+                <div class="dust-particles"></div>
+                <!-- Beautiful Floating Girl and Heart SVG -->
+                <svg viewBox="0 0 300 350" class="svg-floating-girl">
+                  <defs>
+                    <radialGradient id="heartGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#FFD1D1" stop-opacity="1" />
+                      <stop offset="100%" stop-color="#E5B2A9" stop-opacity="0" />
+                    </radialGradient>
+                    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+                      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-opacity="0.1" flood-color="#3D4A41"/>
+                    </filter>
+                  </defs>
+
+                  <!-- Background floating bubbles -->
+                  <circle cx="50" cy="120" r="8" fill="#F7F4EB" opacity="0.6" class="bobbing-bubble-1" />
+                  <circle cx="250" cy="220" r="12" fill="#FADBD8" opacity="0.5" class="bobbing-bubble-2" />
+                  <circle cx="80" cy="280" r="6" fill="#D5E5D5" opacity="0.8" class="bobbing-bubble-3" />
+
+                  <!-- Weightless Girl Body Group -->
+                  <g class="girl-body" filter="url(#softShadow)">
+                    <!-- Floating Hair Back -->
+                    <path d="M 125,75 Q 90,60 85,110 Q 75,150 115,145" fill="#5A473E" />
+                    <!-- Left Leg (tucked w/ cozy sock) -->
+                    <path d="M 125,185 Q 110,215 90,215 Q 85,200 105,185 Z" fill="#E5B2A9" />
+                    <!-- Right Leg (extended floating) -->
+                    <path d="M 135,185 Q 155,230 170,250 Q 180,245 155,210 Q 145,185 135,185 Z" fill="#E5B2A9" />
+                    <!-- Cozy Socks -->
+                    <path d="M 88,210 C 85,205 92,200 95,205 C 92,215 88,212 88,210 Z" fill="#FADBD8" />
+                    <path d="M 166,244 C 172,248 176,242 173,238 C 165,235 163,240 166,244 Z" fill="#F7F4EB" />
+                    
+                    <!-- Cozy Oversized Sage Sweater -->
+                    <path d="M 110,135 Q 90,145 95,175 Q 110,195 135,190 Q 150,175 145,140 Z" fill="#8FA499" />
+                    <path d="M 115,130 C 120,128 130,128 135,130" stroke="#7A8D83" stroke-width="3" stroke-linecap="round" fill="none" />
+                    
+                    <!-- Floating Arms -->
+                    <!-- Left arm (resting near belly) -->
+                    <path d="M 100,145 Q 85,160 100,170" stroke="#E5B2A9" stroke-width="8" stroke-linecap="round" fill="none" />
+                    <!-- Right arm (Reaching UPWARDS towards the heart-clay) -->
+                    <path d="M 140,140 Q 170,110 200,92" stroke="#E5B2A9" stroke-width="9" stroke-linecap="round" fill="none" class="reaching-arm" />
+                    <circle cx="203" cy="90" r="5" fill="#E5B2A9" />
+
+                    <!-- Head & Face -->
+                    <circle cx="128" cy="110" r="18" fill="#E5B2A9" />
+                    <!-- Cheeks (Blush) -->
+                    <circle cx="123" cy="114" r="3" fill="#FADBD8" opacity="0.9" />
+                    <circle cx="135" cy="114" r="3" fill="#FADBD8" opacity="0.9" />
+                    <!-- Happy Closed Eyes -->
+                    <path d="M 120,108 Q 123,111 126,108" stroke="#3D4A41" stroke-width="2" stroke-linecap="round" fill="none" />
+                    <path d="M 132,108 Q 135,111 138,108" stroke="#3D4A41" stroke-width="2" stroke-linecap="round" fill="none" />
+                    <!-- Cute smiling mouth -->
+                    <path d="M 127,118 Q 129,122 131,118" stroke="#3D4A41" stroke-width="1.5" stroke-linecap="round" fill="none" />
+                    
+                    <!-- Floating Hair Front/Bangs -->
+                    <path d="M 110,105 Q 125,95 142,105 C 145,115 140,120 138,110 Q 128,102 118,112 C 114,115 110,110 110,105 Z" fill="#5A473E" />
+                    <!-- Space Buns! -->
+                    <circle cx="114" cy="92" r="8" fill="#5A473E" />
+                    <circle cx="140" cy="92" r="8" fill="#5A473E" />
+                  </g>
+
+                  <!-- Reaching Target: Levitating Heart-Shaped Clay -->
+                  <g class="levitating-heart" filter="url(#softShadow)" id="intro-heart">
+                    <!-- Glow behind -->
+                    <circle cx="225" cy="70" r="28" fill="url(#heartGlow)" class="heart-pulse-glow" />
+                    <!-- Heart clay path -->
+                    <path d="M 225,62 C 220,50 205,52 205,68 C 205,82 225,97 225,97 C 225,97 245,82 245,68 C 245,52 230,50 225,62 Z" fill="#E5B2A9" class="heart-clay-mesh" />
+                    <!-- Heart clay details (happy face) -->
+                    <circle cx="220" cy="68" r="1.5" fill="#F7F4EB" />
+                    <circle cx="230" cy="68" r="1.5" fill="#F7F4EB" />
+                    <path d="M 223,73 Q 225,75 227,73" stroke="#F7F4EB" stroke-width="1" stroke-linecap="round" fill="none" />
+                    <circle cx="217" cy="70" r="1.5" fill="#FF8D8D" opacity="0.8" />
+                    <circle cx="233" cy="70" r="1.5" fill="#FF8D8D" opacity="0.8" />
+                  </g>
+                </svg>
+              </div>
+
+              <!-- Interactive prompt -->
+              <div class="interactive-prompt" id="intro-prompt-block">
+                <span class="click-instruction" id="intro-hint-text">Tap Continue to read on...</span>
+                <button class="action-btn next-screen-trigger hidden-btn" id="intro-start-btn" data-target="music">
+                  START
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+                <button class="action-btn" id="story-next-btn">
+                  Continue ➡️
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="phone-home-bar"></div>
+        </div>
+      </div>
+
+      <!-- PHONE 2: MUSIC SCREEN -->
+      <div class="phone-mockup" id="phone-music">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-status-bar">
+            <span class="status-time">10:11</span>
+            <div class="status-icons">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.07 19.67 10.48 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+              <span class="status-battery">85%</span>
+            </div>
+          </div>
+
+          <!-- SCREEN VIEWPORT -->
+          <div class="screen-viewport screen-beige">
+            <div class="screen-glow"></div>
+            
+            <div class="screen-content music-layout">
+              <!-- Top bar -->
+              <div class="music-header" style="justify-content: center; margin-bottom: 5px; width: 100%;">
+                <h3 class="screen-title" style="font-size: 1.22rem; font-weight: 800; letter-spacing: -0.2px;">Select a music ☕</h3>
+              </div>
+
+              <!-- Main Record Player Zone -->
+              <div class="player-container">
+                <div class="music-notes-spawner" id="notes-spawner"></div>
+                
+                <!-- Cozy Small Pinterest Polaroid (swaps cover art & slides in when loaded) -->
+                <div class="music-polaroid-card" id="music-polaroid-container">
+                  <div class="story-image-tape"></div>
+                  <div class="music-polaroid-frame">
+                    <img src="assets/cover_still_with_you.png" id="music-polaroid-img" class="story-image-img" alt="Album Art">
+                  </div>
+                  <span class="polaroid-caption" id="music-polaroid-caption" style="font-size: 0.5rem; font-weight: 700; margin-top: 4px; display: block; text-align: center; color: var(--color-sage-deep);">Still With You</span>
+                </div>
+                
+                <!-- Floating Record Player Graphics (SVG) -->
+                <svg viewBox="0 0 280 280" class="svg-record-player" id="record-player-svg">
+                  <defs>
+                    <clipPath id="album-cover-clip">
+                      <circle cx="125" cy="140" r="38" />
+                    </clipPath>
+                  </defs>
+                  <!-- Cozy Player Body (sage color shadow) -->
+                  <rect x="35" y="45" width="210" height="190" rx="24" fill="#D5E5D5" stroke="#BFD2BF" stroke-width="4" filter="drop-shadow(0 12px 18px rgba(61,74,65,0.15))" />
+                  
+                  <!-- Platter base -->
+                  <circle cx="125" cy="140" r="75" fill="#EAE5DA" />
+                  <circle cx="125" cy="140" r="70" fill="#F7F4EB" />
+
+                  <!-- Platter Placeholder Guide (When no vinyl is loaded) -->
+                  <g id="platter-placeholder" class="placeholder-guide">
+                    <circle cx="125" cy="140" r="52" fill="none" stroke="var(--color-pink-dark)" stroke-width="1.8" stroke-dasharray="5,5" opacity="0.6" />
+                    <text x="125" y="137" font-family="var(--font-display)" font-size="9" font-weight="700" fill="var(--color-pink-deep)" opacity="0.85" text-anchor="middle">💿 SELECT & LOAD</text>
+                    <text x="125" y="148" font-family="var(--font-display)" font-size="7" font-weight="700" fill="var(--color-pink-deep)" opacity="0.6" text-anchor="middle">VINYL BELOW</text>
+                  </g>
+
+                  <!-- Vinyl Record Group -->
+                  <g class="vinyl-disc" id="vinyl-disc">
+                    <circle cx="125" cy="140" r="65" fill="#3D4A41" />
+                    <!-- Groove Rings -->
+                    <circle cx="125" cy="140" r="55" stroke="#4F5D54" stroke-width="1" fill="none" />
+                    <circle cx="125" cy="140" r="45" stroke="#4F5D54" stroke-width="0.7" fill="none" />
+                    <circle cx="125" cy="140" r="35" stroke="#4F5D54" stroke-width="0.7" fill="none" />
+                    
+                    <!-- Center Label (Cozy pink background) -->
+                    <circle cx="125" cy="140" r="38" fill="#E5B2A9" />
+                    <image id="vinyl-album-cover" href="" x="87" y="102" width="76" height="76" clip-path="url(#album-cover-clip)" />
+                    <!-- Spindle center hole -->
+                    <circle cx="125" cy="140" r="4" fill="#3D4A41" />
+                    <circle cx="125" cy="140" r="2" fill="#F7F4EB" />
+                  </g>
+
+                  <!-- Tone arm structure -->
+                  <g class="tone-arm-group" id="tone-arm">
+                    <circle cx="210" cy="80" r="14" fill="#E5B2A9" stroke="#D39F95" stroke-width="2" />
+                    <circle cx="210" cy="80" r="6" fill="#F7F4EB" />
+                    <!-- The metallic arm -->
+                    <path d="M 210,80 Q 210,130 190,135 Q 185,136 175,132" stroke="#B0C1B0" stroke-width="4" stroke-linecap="round" fill="none" />
+                    <!-- Stylus / Headshell -->
+                    <rect x="165" y="125" width="12" height="16" rx="3" transform="rotate(-15, 171, 133)" fill="#E5B2A9" />
+                  </g>
+
+                  <!-- Floating ambient bubbles around player -->
+                  <circle cx="35" cy="65" r="5" fill="#FADBD8" opacity="0.7" class="levitating-dot-1" />
+                  <circle cx="235" cy="205" r="7" fill="#FADBD8" opacity="0.6" class="levitating-dot-2" />
+                </svg>
+              </div>
+
+              <!-- Cozy Song Selector Minimal Text List with Swatches -->
+              <div class="playlist-list">
+                <button class="playlist-item" data-track="still_with_you">
+                  <span class="track-text">Still With You — Jungkook</span>
+                </button>
+                <button class="playlist-item" data-track="rumbling">
+                  <span class="track-text">Rumbling — AOT Music Box</span>
+                </button>
+                <button class="playlist-item" data-track="shinunoga_e_wa">
+                  <span class="track-text">Shinunoga E-Wa — Fujii Kaze</span>
+                </button>
+              </div>
+
+              <!-- Track Info & Dynamic Playback Button -->
+              <div class="audio-controls">
+                <div class="track-info">
+                  <span class="track-title" id="track-name">Turntable is Empty</span>
+                  <span class="track-artist">Select a vinyl below to load! 💿</span>
+                </div>
+                
+                <!-- Cozy soundwaves -->
+                <div class="visualizer-waves" id="waves-container">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+
+                <div class="playback-buttons">
+                  <button class="music-action-btn circle-btn" id="volume-toggle-btn" title="Mute/Unmute">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  </button>
+                  
+                  <button class="music-action-btn play-btn" id="play-pause-btn">
+                    <span class="play-icon-container">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" id="play-svg"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" id="pause-svg" class="hidden-icon"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </span>
+                    <span id="play-text">Start Lo-Fi Loop</span>
+                  </button>
+                  
+                  <button class="music-action-btn next-screen-trigger circle-btn" data-target="gallery" title="Next Screen">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                  </button>
+                </div>
+                <span class="headphones-hint">🎧 Best enjoyed with headphones active</span>
+              </div>
+            </div>
+          </div>
+          <div class="phone-home-bar"></div>
+        </div>
+      </div>
+
+      <!-- PHONE 3: GALLERY SCREEN — What will you make? -->
+      <div class="phone-mockup" id="phone-gallery">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-status-bar">
+            <span class="status-time">10:12</span>
+            <div class="status-icons">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.07 19.67 10.48 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+          </div>
+
+          <!-- SCREEN VIEWPORT -->
+          <div class="screen-viewport screen-beige" id="gallery-viewport">
+            <div class="screen-glow"></div>
+
+            <div class="screen-content picker-layout">
+              <div class="picker-header">
+                <span class="badge badge-sage">Clay Studio ✨</span>
+                <h3 class="screen-title">What will you<br>make today?</h3>
+                <p class="desc">Pick your clay creation and we'll guide you step by step 🌴</p>
+              </div>
+
+              <!-- Creation Cards -->
+              <div class="creation-cards-grid">
+
+                <!-- Card 1: Cozy Cat -->
+                <button class="creation-card" id="pick-cat" data-object="cat">
+                  <div class="creation-card-art">
+                    <svg viewBox="0 0 100 100" class="creation-svg">
+                      <ellipse cx="50" cy="67" rx="34" ry="24" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/>
+                      <circle cx="50" cy="43" r="21" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/>
+                      <path d="M 33,35 L 30,18 L 42,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M 67,35 L 70,18 L 58,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/>
+                      <path d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/>
+                      <path d="M 40,44 Q 44,48 44,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                      <path d="M 60,44 Q 56,48 56,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                      <circle cx="50" cy="49" r="2" fill="#E5B2A9"/>
+                      <path d="M 46,52 Q 50,55 54,52" stroke="#3D4A41" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                      <ellipse cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/>
+                      <ellipse cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/>
+                      <path d="M 72,70 Q 82,62 80,75 Q 78,82 68,78" stroke="#DBC8B5" stroke-width="4" stroke-linecap="round" fill="none"/>
+                    </svg>
+                  </div>
+                  <div class="creation-card-info">
+                    <span class="creation-name">Cozy Cat</span>
+                    <span class="creation-tagline">Soft, sleepy &amp; curled up 🐱</span>
+                  </div>
+                  <div class="creation-card-cta">Let's make it →</div>
+                </button>
+
+                <!-- Card 2: Satoru Gojo Chibi -->
+                <button class="creation-card" id="pick-gojo" data-object="gojo">
+                  <div class="creation-card-art">
+                    <svg viewBox="0 0 100 100" class="creation-svg">
+                      <rect x="34" y="64" width="32" height="26" rx="8" fill="#1a2744" stroke="#111d38" stroke-width="1.5"/>
+                      <path d="M 44,64 L 50,72 L 56,64" fill="#FAF8F4" stroke="#DDD" stroke-width="1"/>
+                      <ellipse cx="27" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.5" transform="rotate(-20 27 72)"/>
+                      <ellipse cx="73" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.5" transform="rotate(20 73 72)"/>
+                      <circle cx="50" cy="40" r="28" fill="#FAF8F4" stroke="#E0D5C5" stroke-width="1.5"/>
+                      <path d="M 30,28 L 26,10 L 36,22 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/>
+                      <path d="M 38,22 L 38,6 L 46,20 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/>
+                      <path d="M 48,20 L 50,4 L 56,18 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/>
+                      <path d="M 58,22 L 64,8 L 66,24 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/>
+                      <path d="M 66,28 L 74,14 L 72,30 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/>
+                      <ellipse cx="50" cy="26" rx="26" ry="14" fill="#E8E8F0"/>
+                      <rect x="24" y="35" width="52" height="11" rx="5.5" fill="#1a1a2e"/>
+                      <rect x="27" y="37" width="18" height="3" rx="1.5" fill="white" opacity="0.15"/>
+                      <path d="M 44,52 Q 50,57 56,52" stroke="#3D4A41" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                      <ellipse cx="36" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/>
+                      <ellipse cx="64" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/>
+                      <ellipse cx="40" cy="91" rx="7" ry="4" fill="#1a2744"/>
+                      <ellipse cx="60" cy="91" rx="7" ry="4" fill="#1a2744"/>
+                    </svg>
+                  </div>
+                  <div class="creation-card-info">
+                    <span class="creation-name">Gojo Chibi</span>
+                    <span class="creation-tagline">White-haired &amp; blindfolded &#x26A1;</span>
+                  </div>
+                  <div class="creation-card-cta">Let's make it &#x2192;</div>
+                </button>
+
+                <!-- Card 3: Cute Penguin -->
+                <button class="creation-card" id="pick-penguin" data-object="penguin">
+                  <div class="creation-card-art">
+                    <svg viewBox="0 0 100 100" class="creation-svg">
+                      <ellipse cx="50" cy="66" rx="26" ry="28" fill="#1e2235" stroke="#141627" stroke-width="1.5"/>
+                      <ellipse cx="50" cy="70" rx="16" ry="20" fill="#F7F4EB"/>
+                      <circle cx="50" cy="36" r="20" fill="#1e2235" stroke="#141627" stroke-width="1.5"/>
+                      <circle cx="43" cy="32" r="6" fill="white"/>
+                      <circle cx="57" cy="32" r="6" fill="white"/>
+                      <circle cx="44" cy="33" r="3.5" fill="#1e1e2e"/>
+                      <circle cx="58" cy="33" r="3.5" fill="#1e1e2e"/>
+                      <circle cx="45" cy="31" r="1.2" fill="white"/>
+                      <circle cx="59" cy="31" r="1.2" fill="white"/>
+                      <path d="M 46,40 L 50,47 L 54,40 Z" fill="#FF8C42" stroke="#E07030" stroke-width="1"/>
+                      <ellipse cx="36" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/>
+                      <ellipse cx="64" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/>
+                      <ellipse cx="24" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.5" transform="rotate(-15 24 65)"/>
+                      <ellipse cx="76" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.5" transform="rotate(15 76 65)"/>
+                      <ellipse cx="40" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(-10 40 93)"/>
+                      <ellipse cx="60" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(10 60 93)"/>
+                    </svg>
+                  </div>
+                  <div class="creation-card-info">
+                    <span class="creation-name">Cute Penguin</span>
+                    <span class="creation-tagline">Chubby, waddly &amp; precious &#x1F427;</span>
+                  </div>
+                  <div class="creation-card-cta">Let's make it &#x2192;</div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="phone-home-bar"></div>
+        </div>
+      </div>
+
+      <!-- PHONE 3.5: CLAY STEPS SCREEN -->
+      <div class="phone-mockup" id="phone-steps">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-status-bar">
+            <span class="status-time">10:13</span>
+            <div class="status-icons">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M1 6l5 5 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </div>
+          </div>
+
+          <!-- SCREEN VIEWPORT -->
+          <div class="screen-viewport screen-beige" id="steps-viewport">
+            <div class="screen-glow"></div>
+
+            <div class="screen-content steps-layout">
+
+              <!-- Steps Header -->
+              <div class="steps-header">
+                <button class="steps-back-btn" id="steps-back-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Back
+                </button>
+                <div class="steps-object-title-row">
+                  <span class="steps-object-emoji" id="steps-object-emoji">🐱</span>
+                  <span class="steps-object-name" id="steps-object-name">Cozy Cat</span>
+                </div>
+              </div>
+
+              <!-- Step Progress Dots -->
+              <div class="steps-dots-row" id="steps-dots-row"></div>
+
+              <!-- Game Canvas Area -->
+              <div class="game-area" id="game-area">
+                <!-- Storage Shelf -->
+                <div class="game-shelf" id="game-shelf">
+                  <div class="game-shelf-label">Parts</div>
+                  <div class="game-shelf-slots" id="game-shelf-slots"></div>
+                </div>
+                
+                <!-- Assembly Silhouette Target Canvas -->
+                <div class="assembly-container" id="assembly-container" style="display: none;">
+                  <div class="assembly-silhouette" id="assembly-silhouette"></div>
+                  <div class="assembly-placed-parts" id="assembly-placed-parts"></div>
+                </div>
+
+                <!-- Interactive Tool Overlays -->
+                <div class="knead-hand-indicator" id="knead-hand">🤲</div>
+                
+                <svg viewBox="0 0 120 40" class="game-rolling-pin" id="game-rolling-pin">
+                  <rect x="25" y="15" width="70" height="10" rx="3" fill="#DBC8B5" stroke="#3D4A41" stroke-width="1.5"/>
+                  <rect x="5" y="18" width="20" height="4" rx="1" fill="#EAE5DA" stroke="#3D4A41" stroke-width="1.5"/>
+                  <rect x="95" y="18" width="20" height="4" rx="1" fill="#EAE5DA" stroke="#3D4A41" stroke-width="1.5"/>
+                </svg>
+
+                <svg viewBox="0 0 48 48" class="game-clay-knife" id="game-clay-knife">
+                  <path d="M10 38 L38 10 L34 6 L6 34 Z" fill="#EAE5DA" stroke="#3D4A41" stroke-width="2"/>
+                  <path d="M6 34 L10 38 L4 44 Z" fill="#DBC8B5" stroke="#3D4A41" stroke-width="2"/>
+                  <line x1="16" y1="32" x2="22" y2="38" stroke="#3D4A41" stroke-width="2"/>
+                </svg>
+
+                <div class="game-progress-bar" id="game-progress-bar">
+                  <div class="game-progress-fill" id="game-progress-fill"></div>
+                </div>
+                <div class="game-action-label" id="game-action-label">Drag to knead the clay</div>
+                <div class="game-complete-badge" id="game-complete-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Done!
+                </div>
+              </div>
+
+              <!-- Step Card (compact overlay) -->
+              <div class="step-card step-card-compact" id="step-card">
+                <div class="step-card-inner">
+                  <div class="step-number-badge" id="step-number-badge">Step 1</div>
+                  <div class="step-tool-tag" id="step-tool-tag">🤲 Your hands</div>
+                  <p class="step-instruction" id="step-instruction">Loading...</p>
+                </div>
+              </div>
+
+              <!-- Navigation -->
+              <div class="steps-nav">
+                <button class="step-nav-btn prev" id="step-prev-btn" disabled>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Prev
+                </button>
+                <span class="step-counter" id="step-counter">1 / 5</span>
+                <button class="step-nav-btn next" id="step-next-btn">
+                  Next
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Shutter Flash Camera Overlay -->
+            <div class="shutter-flash" id="shutter-flash"></div>
+
+            <!-- Polaroid Snapshot Celebration Modal -->
+            <div class="polaroid-modal" id="polaroid-modal">
+              <div class="polaroid-modal-card">
+                <div class="story-image-tape"></div>
+                <div class="polaroid-modal-photo" id="polaroid-modal-photo">
+                  <!-- Final Assembled SVG will be dynamically injected here -->
+                </div>
+                <div class="polaroid-modal-caption" id="polaroid-modal-caption">cozy companion 💖</div>
+                <div class="polaroid-modal-author">sculpted with 💖 by Pranjal</div>
+              </div>
+              <div class="polaroid-modal-buttons">
+                <button class="action-btn primary" id="polaroid-message-btn" style="background: var(--color-pink-deep) !important; color: white !important; margin-bottom: 4px;">💌 View Message from Author</button>
+                <button class="action-btn secondary" id="polaroid-restart-btn">🔄 Craft Again</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="phone-home-bar"></div>
+        </div>
+      </div>
+
+      <!-- PHONE 4: MESSAGE FROM AUTHOR SCREEN -->
+      <div class="phone-mockup" id="phone-message">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-status-bar">
+            <span class="status-time">10:14</span>
+            <div class="status-icons">
+              <span class="status-battery">💖</span>
+            </div>
+          </div>
+
+          <!-- SCREEN VIEWPORT -->
+          <div class="screen-viewport screen-dramatic" id="message-viewport">
+            <div class="screen-glow"></div>
+            
+            <!-- Ambient Glowing stars and deep galaxy bobs -->
+            <div class="message-galaxy-bg">
+              <div class="ambient-glow dramatic-glow-1"></div>
+              <div class="ambient-glow dramatic-glow-2"></div>
+              <!-- Floating tiny SVG stars bobbing -->
+              <svg viewBox="0 0 100 100" class="svg-message-stars">
+                <circle cx="20" cy="30" r="1.5" fill="#FAF8F4" opacity="0.6" class="star-blink-1" />
+                <circle cx="80" cy="20" r="1" fill="#FADBD8" opacity="0.8" class="star-blink-2" />
+                <circle cx="15" cy="70" r="1.2" fill="#D5E5D5" opacity="0.5" class="star-blink-3" />
+                <circle cx="75" cy="80" r="2" fill="#FAF8F4" opacity="0.7" class="star-blink-4" />
+                <!-- Wobbly constellations -->
+                <path d="M 20,30 L 35,45 L 50,40" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none" />
+                <path d="M 80,20 L 68,38 L 75,55" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none" />
+              </svg>
+            </div>
+
+            <div class="screen-content message-layout">
+              <div class="message-card-wrapper">
+                <!-- Glowing tape on top of the letter -->
+                <div class="washi-tape tape-top-center" style="background: rgba(229,178,169,0.6) !important; transform: rotate(-2deg); top: -14px;"></div>
+                
+                <div class="message-card-header">
+                  <span class="message-card-emoji">💌</span>
+                  <h3>A Note for Pranjal</h3>
+                </div>
+                
+                <div class="message-card-body">
+                  <p class="letter-paragraph">Pranjal...</p>
+                  <p class="letter-paragraph">We had such an amazing bond, but somehow I let it drain away while getting swallowed up in work and daily rush...</p>
+                  <p class="letter-paragraph">I deeply miss our late-night talks, our silly laughs, and the wonderful connection we shared. It was a mistake to let it drift apart.</p>
+                  <p class="letter-paragraph">I wanted to ask you from the bottom of my heart... <strong>Can we give our friendship another chance?</strong> 🥺</p>
+                </div>
+                
+                <div class="message-card-actions">
+                  <button class="action-btn next" id="message-yes-btn" style="background: var(--color-pink-dark) !important; border-color: var(--color-pink-dark) !important; color: #3D4A41 !important;">
+                    Yes, let's waddle again! 🐧💖
+                  </button>
+                  <button class="action-btn secondary" id="message-time-btn" style="background: rgba(255,255,255,0.7) !important; border: 1.5px solid rgba(143,164,153,0.3) !important;">
+                    Give me some time... ☕
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-home-bar"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Floating Return Button (only visible in focused mode) -->
+    <button class="floating-grid-return" id="return-grid-btn" title="Back to Showcase Grid">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+      Showcase Grid
+    </button>
+
+  </main>
+
+  <audio id="lofi-audio-player" style="display: none;" loop></audio>
+  <script src="app.js?v=10.5"></script>
+</body>
+</html>
