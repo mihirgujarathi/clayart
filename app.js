@@ -801,7 +801,7 @@ document.addEventListener('DOMContentLoaded', () => {
           clayColor: '#FAF6EE'
         }
       ],
-      finalSvg: `<svg viewBox="0 0 100 100"><path class="sil-part-tail" d="M 68,78 Q 78,80 76,68 Q 74,58 82,56" stroke="#E5D2C0" stroke-width="3.2" stroke-linecap="round" fill="none"/><ellipse class="sil-part-body" cx="50" cy="67" rx="34" ry="24" fill="#FAF6EE"/><circle class="sil-part-head" cx="50" cy="43" r="21" fill="#FAF6EE"/><path class="sil-part-head" d="M 33,35 L 30,18 L 42,28 Z" fill="#FAF6EE" stroke="#FAF6EE" stroke-linejoin="round"/><path class="sil-part-head" d="M 67,35 L 70,18 L 58,28 Z" fill="#FAF6EE" stroke="#FAF6EE" stroke-linejoin="round"/><path class="sil-part-head" d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 40,44 Q 44,48 44,44" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><path class="sil-part-head" d="M 60,44 Q 56,48 56,44" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle class="sil-part-head" cx="50" cy="49" r="2" fill="#E5B2A9"/><path class="sil-part-head" d="M 46,52 Q 50,55 54,52" stroke="#4A3E3D" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse class="sil-part-head" cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><ellipse class="sil-part-head" cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/></svg>`
+      finalSvg: `<svg viewBox="0 0 100 100"><ellipse class="sil-part-body" cx="50" cy="67" rx="34" ry="24" fill="#FAF6EE"/><circle class="sil-part-head" cx="50" cy="43" r="21" fill="#FAF6EE"/><path class="sil-part-head" d="M 33,35 L 30,18 L 42,28 Z" fill="#FAF6EE" stroke="#FAF6EE" stroke-linejoin="round"/><path class="sil-part-head" d="M 67,35 L 70,18 L 58,28 Z" fill="#FAF6EE" stroke="#FAF6EE" stroke-linejoin="round"/><path class="sil-part-head" d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 40,44 Q 44,48 44,44" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><path class="sil-part-head" d="M 60,44 Q 56,48 56,44" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle class="sil-part-head" cx="50" cy="49" r="2" fill="#E5B2A9"/><path class="sil-part-head" d="M 46,52 Q 50,55 54,52" stroke="#4A3E3D" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse class="sil-part-head" cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><ellipse class="sil-part-head" cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><path class="sil-part-tail" d="M 68,78 Q 78,80 76,68 Q 74,58 82,56" stroke="#E5D2C0" stroke-width="3.2" stroke-linecap="round" fill="none"/></svg>`
     },
     gojo: {
       name: 'Gojo Chibi', emoji: '⚡',
@@ -1725,7 +1725,7 @@ document.addEventListener('DOMContentLoaded', () => {
     snapPiece.innerHTML = partData.partSvg;
 
     const zLayers = {
-      tail: 1,
+      tail: 3,
       body: 2,
       belly: 3,
       head: 4,
