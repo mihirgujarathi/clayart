@@ -741,138 +741,201 @@ document.addEventListener('DOMContentLoaded', () => {
       caption: 'Momo the sleepy kitty! 🐱💤',
       parts: [
         {
-          id: 'break', name: 'Pull off Cream Clay',
-          instruction: 'Drag the cream clay chunk to pull it wobbily out from the block! 🤲',
-          action: 'pull', actionLabel: 'Drag right to pull clay'
+          id: 'break_body', name: 'Pull off Body Clay',
+          instruction: 'Drag the cream clay block wobbily to break off a chunky piece for Momo\'s plump body! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull body clay',
+          clayColor: '#FAF6EE'
         },
         {
-          id: 'knead', name: 'Knead & Soften',
-          instruction: 'Warm the chunk and rub it back and forth to knead it into a smooth ball! 🤲',
-          action: 'knead', actionLabel: 'Rub back & forth to knead'
+          id: 'knead_body', name: 'Knead Body Clay',
+          instruction: 'Warm and knead the cream chunk back and forth to shape a smooth round ball! 🤲',
+          action: 'knead', actionLabel: 'Rub back & forth to knead',
+          clayColor: '#FAF6EE'
         },
         {
-          id: 'body', name: 'Plump Body',
-          instruction: 'Drag the rolling pin up and down to roll the ball into a cozy oval! 🪵',
+          id: 'body', name: 'Roll Plump Body',
+          instruction: 'Drag the rolling pin wobbily to roll the ball into Momo\'s cozy oval body! 🪵',
           action: 'roll', actionLabel: 'Drag up/down to roll body',
-          partSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="67" rx="34" ry="24" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/></svg>`,
-          assembleAt: { x: 50, y: 67 }
+          partSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="67" rx="34" ry="24" fill="#FAF6EE"/></svg>`,
+          assembleAt: { x: 50, y: 67 },
+          clayColor: '#FAF6EE'
         },
         {
-          id: 'head_tail', name: 'Head & Tail details',
-          instruction: 'Swipe your carving tool to carve wobbly triangle ears, face details, and a cute wobbly tail! 🔪',
-          action: 'slice', actionLabel: 'Swipe to carve head & tail',
-          subParts: [
-            {
-              id: 'head', name: 'Head & Face',
-              partSvg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="43" r="21" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/><path d="M 33,35 L 30,18 L 42,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/><path d="M 67,35 L 70,18 L 58,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/><path d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/><path d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/><path d="M 40,44 Q 44,48 44,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M 60,44 Q 56,48 56,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="50" cy="49" r="2" fill="#E5B2A9"/><path d="M 46,52 Q 50,55 54,52" stroke="#3D4A41" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><ellipse cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/></svg>`,
-              assembleAt: { x: 50, y: 43 }
-            },
-            {
-              id: 'tail', name: 'Wobbly Tail',
-              partSvg: `<svg viewBox="0 0 100 100"><path d="M 72,70 Q 82,62 80,75 Q 78,82 68,78" stroke="#DBC8B5" stroke-width="4.5" stroke-linecap="round" fill="none"/></svg>`,
-              assembleAt: { x: 50, y: 50 }
-            }
-          ]
+          id: 'break_head', name: 'Pull off Head Clay',
+          instruction: 'Drag and break off a smaller cream clay piece for Momo\'s cute round head! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull head clay',
+          clayColor: '#FAF6EE'
+        },
+        {
+          id: 'knead_head', name: 'Knead Head Clay',
+          instruction: 'Condition the head cream chunk and knead it into a perfect round ball! 🤲',
+          action: 'knead', actionLabel: 'Rub back & forth to knead',
+          clayColor: '#FAF6EE'
+        },
+        {
+          id: 'head', name: 'Pinch Ears & Face',
+          instruction: 'Carve wobbly sleeping eyes, tiny whiskers, a nose, and pinch two ears on top! 🔪',
+          action: 'slice', actionLabel: 'Swipe to carve ears & face',
+          partSvg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="43" r="21" fill="#FAF6EE"/><path d="M 33,35 L 30,18 L 42,28 Z" fill="#FAF6EE" stroke="#FAF6EE" stroke-linejoin="round"/><path d="M 67,35 L 70,18 L 58,28 Z" fill="#FAF6EE" stroke="#FAF6EE" stroke-linejoin="round"/><path d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/><path d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/><path d="M 40,44 Q 44,48 44,44" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M 60,44 Q 56,48 56,44" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="50" cy="49" r="2" fill="#E5B2A9"/><path d="M 46,52 Q 50,55 54,52" stroke="#4A3E3D" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><ellipse cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/></svg>`,
+          assembleAt: { x: 50, y: 43 },
+          clayColor: '#FAF6EE'
+        },
+        {
+          id: 'break_tail', name: 'Pull off Tail Clay',
+          instruction: 'Drag the toasted cream clay block once more to pull off a strip for Momo\'s happy tail! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull tail clay',
+          clayColor: '#E5D2C0'
+        },
+        {
+          id: 'tail', name: 'Roll Curved Tail',
+          instruction: 'Roll and curve the toasted cream strip wobbily to mold a cute perky tail! 🪵',
+          action: 'roll', actionLabel: 'Drag up/down to roll tail',
+          partSvg: `<svg viewBox="0 0 100 100"><path d="M 68,78 Q 78,80 76,68 Q 74,58 82,56" stroke="#E5D2C0" stroke-width="3.2" stroke-linecap="round" fill="none"/></svg>`,
+          assembleAt: { x: 50, y: 50 },
+          clayColor: '#E5D2C0'
         },
         {
           id: 'assemble', name: 'Assembly Studio',
-          instruction: 'Drag your wobbly body, head, and tail onto the silhouette guide to assemble your Cozy Cat! ✨',
-          action: 'assemble', actionLabel: 'Drag parts to silhouette'
+          instruction: 'Drag your wobbly body, detailed head, and curved tail onto the silhouette to complete Momo! ✨',
+          action: 'assemble', actionLabel: 'Drag parts to silhouette',
+          clayColor: '#FAF6EE'
         }
       ],
-      finalSvg: `<svg viewBox="0 0 100 100"><ellipse class="sil-part-body" cx="50" cy="67" rx="34" ry="24" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/><circle class="sil-part-head" cx="50" cy="43" r="21" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2"/><path class="sil-part-head" d="M 33,35 L 30,18 L 42,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/><path class="sil-part-head" d="M 67,35 L 70,18 L 58,28 Z" fill="#F0E5D7" stroke="#DBC8B5" stroke-width="2" stroke-linejoin="round"/><path class="sil-part-head" d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 40,44 Q 44,48 44,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><path class="sil-part-head" d="M 60,44 Q 56,48 56,44" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle class="sil-part-head" cx="50" cy="49" r="2" fill="#E5B2A9"/><path class="sil-part-head" d="M 46,52 Q 50,55 54,52" stroke="#3D4A41" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse class="sil-part-head" cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><ellipse class="sil-part-head" cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><path class="sil-part-tail" d="M 72,70 Q 82,62 80,75 Q 78,82 68,78" stroke="#DBC8B5" stroke-width="4" stroke-linecap="round" fill="none"/></svg>`
+      finalSvg: `<svg viewBox="0 0 100 100"><path class="sil-part-tail" d="M 68,78 Q 78,80 76,68 Q 74,58 82,56" stroke="#E5D2C0" stroke-width="3.2" stroke-linecap="round" fill="none"/><ellipse class="sil-part-body" cx="50" cy="67" rx="34" ry="24" fill="#FAF6EE"/><circle class="sil-part-head" cx="50" cy="43" r="21" fill="#FAF6EE"/><path class="sil-part-head" d="M 33,35 L 30,18 L 42,28 Z" fill="#FAF6EE" stroke="#FAF6EE" stroke-linejoin="round"/><path class="sil-part-head" d="M 67,35 L 70,18 L 58,28 Z" fill="#FAF6EE" stroke="#FAF6EE" stroke-linejoin="round"/><path class="sil-part-head" d="M 35,30 L 32,21 L 41,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 65,30 L 68,21 L 59,26 Z" fill="#E5B2A9"/><path class="sil-part-head" d="M 40,44 Q 44,48 44,44" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><path class="sil-part-head" d="M 60,44 Q 56,48 56,44" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle class="sil-part-head" cx="50" cy="49" r="2" fill="#E5B2A9"/><path class="sil-part-head" d="M 46,52 Q 50,55 54,52" stroke="#4A3E3D" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse class="sil-part-head" cx="38" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/><ellipse class="sil-part-head" cx="62" cy="48" rx="3" ry="2" fill="#FADBD8" opacity="0.9"/></svg>`
     },
     gojo: {
       name: 'Gojo Chibi', emoji: '⚡',
       caption: 'Gojo-sensei at 100% clay power! ⚡',
       parts: [
         {
-          id: 'break', name: 'Pull off Chibi Clay',
-          instruction: 'Drag and pull to separate chunks of off-white and dark navy clay wobbily! 🤲',
-          action: 'pull', actionLabel: 'Drag right to pull clay'
+          id: 'break_body', name: 'Pull off Navy Clay',
+          instruction: 'Drag the deep navy block wobbily to break off a chunky piece for Gojo\'s uniform robe! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull navy clay',
+          clayColor: '#232B3E'
         },
         {
-          id: 'knead', name: 'Knead Chunks',
-          instruction: 'Rub both pieces back and forth to knead them into smooth wobbly balls! 🤲',
-          action: 'knead', actionLabel: 'Rub back & forth to knead'
+          id: 'knead_body', name: 'Knead Navy Clay',
+          instruction: 'Warm the navy chunk and knead it back and forth wobbily into a smooth sphere! 🤲',
+          action: 'knead', actionLabel: 'Rub back & forth to knead',
+          clayColor: '#232B3E'
         },
         {
-          id: 'body', name: 'Robe & Feet',
-          instruction: 'Drag the rolling pin to roll navy clay into his uniform block and cute little feet! 🪵',
-          action: 'roll', actionLabel: 'Drag up/down to roll robe',
-          partSvg: `<svg viewBox="0 0 100 100"><rect x="34" y="64" width="32" height="26" rx="8" fill="#1a2744" stroke="#111d38" stroke-width="1.8"/><path d="M 44,64 L 50,72 L 56,64" fill="#FAF8F4" stroke="#DDD" stroke-width="1"/><ellipse cx="27" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.8" transform="rotate(-20 27 72)"/><ellipse cx="73" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.8" transform="rotate(20 73 72)"/><ellipse cx="40" cy="91" rx="7" ry="4" fill="#1a2744"/><ellipse cx="60" cy="91" rx="7" ry="4" fill="#1a2744"/></svg>`,
-          assembleAt: { x: 50, y: 50 }
+          id: 'body', name: 'Roll Robe & Torso',
+          instruction: 'Drag the rolling pin wobbily to shape navy clay into Gojo\'s chibi uniform robe! 🪵',
+          action: 'roll', actionLabel: 'Drag up/down to roll body',
+          partSvg: `<svg viewBox="0 0 100 100"><rect x="34" y="64" width="32" height="26" rx="8" fill="#232B3E"/><path d="M 44,64 L 50,72 L 56,64" fill="#FAF0E6"/><ellipse cx="27" cy="72" rx="7" ry="5" fill="#232B3E" transform="rotate(-20 27 72)"/><ellipse cx="73" cy="72" rx="7" ry="5" fill="#232B3E" transform="rotate(20 73 72)"/><ellipse cx="40" cy="91" rx="7" ry="4" fill="#232B3E"/><ellipse cx="60" cy="91" rx="7" ry="4" fill="#232B3E"/></svg>`,
+          assembleAt: { x: 50, y: 50 },
+          clayColor: '#232B3E'
         },
         {
-          id: 'head_details', name: 'Head & Spiky Hair',
-          instruction: 'Swipe to carve Gojo\'s spiky white hair, charming smirk, and iconic blindfold! 🔪',
-          action: 'slice', actionLabel: 'Swipe to carve head details',
-          subParts: [
-            {
-              id: 'head', name: 'Chibi Head',
-              partSvg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="40" r="28" fill="#FAF8F4" stroke="#E0D5C5" stroke-width="1.8"/><path d="M 44,52 Q 50,57 56,52" stroke="#3D4A41" stroke-width="1.8" stroke-linecap="round" fill="none"/><ellipse cx="36" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse cx="64" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/></svg>`,
-              assembleAt: { x: 50, y: 40 }
-            },
-            {
-              id: 'hair', name: 'Hair & Blindfold',
-              partSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="26" rx="26" ry="14" fill="#E8E8F0"/><path d="M 30,28 L 26,10 L 36,22 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path d="M 38,22 L 38,6 L 46,20 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path d="M 48,20 L 50,4 L 56,18 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path d="M 58,22 L 64,8 L 66,24 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path d="M 66,28 L 74,14 L 72,30 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><rect x="24" y="35" width="52" height="11" rx="5.5" fill="#1a1a2e"/><rect x="27" y="37" width="18" height="3" rx="1.5" fill="white" opacity="0.15"/></svg>`,
-              assembleAt: { x: 50, y: 50 }
-            }
-          ]
+          id: 'break_head', name: 'Pull off Peach Clay',
+          instruction: 'Drag the soft peach clay block to break off a chunk for Gojo\'s chibi head! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull peach clay',
+          clayColor: '#FAF0E6'
+        },
+        {
+          id: 'knead_head', name: 'Knead Peach Head',
+          instruction: 'Warm and roll the peach-colored chunk wobbily into a smooth round head sphere! 🤲',
+          action: 'knead', actionLabel: 'Rub back & forth to knead',
+          clayColor: '#FAF0E6'
+        },
+        {
+          id: 'head', name: 'Smirking Chibi Head',
+          instruction: 'Use your clay carver to slice Gojo\'s charming smirk and cute rosy cheeks! 🔪',
+          action: 'slice', actionLabel: 'Swipe to carve face details',
+          partSvg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="40" r="28" fill="#FAF0E6"/><path d="M 44,52 Q 50,57 56,52" stroke="#4A3E3D" stroke-width="1.8" stroke-linecap="round" fill="none"/><ellipse cx="36" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse cx="64" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/></svg>`,
+          assembleAt: { x: 50, y: 40 },
+          clayColor: '#FAF0E6'
+        },
+        {
+          id: 'break_hair', name: 'Pull off White Clay',
+          instruction: 'Drag the off-white block wobbily to separate a chunk for Gojo\'s spiky hair! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull white clay',
+          clayColor: '#F8F9FA'
+        },
+        {
+          id: 'hair', name: 'Spiky Hair & Blindfold',
+          instruction: 'Slice clean spiky hair lines into the white clay and apply his charcoal blindfold! 🔪',
+          action: 'slice', actionLabel: 'Swipe to carve spikes',
+          partSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="26" rx="26" ry="14" fill="#F8F9FA"/><path d="M 30,28 L 26,10 L 36,22 Z" fill="#F8F9FA"/><path d="M 38,22 L 38,6 L 46,20 Z" fill="#F8F9FA"/><path d="M 48,20 L 50,4 L 56,18 Z" fill="#F8F9FA"/><path d="M 58,22 L 64,8 L 66,24 Z" fill="#F8F9FA"/><path d="M 66,28 L 74,14 L 72,30 Z" fill="#F8F9FA"/><rect x="24" y="35" width="52" height="11" rx="5.5" fill="#1C1E24"/><rect x="27" y="37" width="18" height="3" rx="1.5" fill="white" opacity="0.2"/></svg>`,
+          assembleAt: { x: 50, y: 50 },
+          clayColor: '#F8F9FA'
         },
         {
           id: 'assemble', name: 'Assembly Studio',
           instruction: 'Drag Gojo\'s spiky hair, blindfolded head, and navy uniform to snap them together! ⚡',
-          action: 'assemble', actionLabel: 'Drag parts to silhouette'
+          action: 'assemble', actionLabel: 'Drag parts to silhouette',
+          clayColor: '#FAF0E6'
         }
       ],
-      finalSvg: `<svg viewBox="0 0 100 100"><rect class="sil-part-body" x="34" y="64" width="32" height="26" rx="8" fill="#1a2744" stroke="#111d38" stroke-width="1.5"/><path class="sil-part-body" d="M 44,64 L 50,72 L 56,64" fill="#FAF8F4" stroke="#DDD" stroke-width="1"/><ellipse class="sil-part-body" cx="27" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.5" transform="rotate(-20 27 72)"/><ellipse class="sil-part-body" cx="73" cy="72" rx="7" ry="5" fill="#1a2744" stroke="#111d38" stroke-width="1.5" transform="rotate(20 73 72)"/><circle class="sil-part-head" cx="50" cy="40" r="28" fill="#FAF8F4" stroke="#E0D5C5" stroke-width="1.5"/><ellipse class="sil-part-hair" cx="50" cy="26" rx="26" ry="14" fill="#E8E8F0"/><path class="sil-part-hair" d="M 30,28 L 26,10 L 36,22 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path class="sil-part-hair" d="M 38,22 L 38,6 L 46,20 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path class="sil-part-hair" d="M 48,20 L 50,4 L 56,18 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path class="sil-part-hair" d="M 58,22 L 64,8 L 66,24 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><path class="sil-part-hair" d="M 66,28 L 74,14 L 72,30 Z" fill="#E8E8F0" stroke="#CCC" stroke-width="1"/><rect class="sil-part-hair" x="24" y="35" width="52" height="11" rx="5.5" fill="#1a1a2e"/><rect class="sil-part-hair" x="27" y="37" width="18" height="3" rx="1.5" fill="white" opacity="0.15"/><path class="sil-part-head" d="M 44,52 Q 50,57 56,52" stroke="#3D4A41" stroke-width="1.5" stroke-linecap="round" fill="none"/><ellipse class="sil-part-head" cx="36" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse class="sil-part-head" cx="64" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse class="sil-part-body" cx="40" cy="91" rx="7" ry="4" fill="#1a2744"/><ellipse class="sil-part-body" cx="60" cy="91" rx="7" ry="4" fill="#1a2744"/></svg>`
+      finalSvg: `<svg viewBox="0 0 100 100"><rect class="sil-part-body" x="34" y="64" width="32" height="26" rx="8" fill="#232B3E"/><path class="sil-part-body" d="M 44,64 L 50,72 L 56,64" fill="#FAF0E6"/><ellipse class="sil-part-body" cx="27" cy="72" rx="7" ry="5" fill="#232B3E" transform="rotate(-20 27 72)"/><ellipse class="sil-part-body" cx="73" cy="72" rx="7" ry="5" fill="#232B3E" transform="rotate(20 73 72)"/><circle class="sil-part-head" cx="50" cy="40" r="28" fill="#FAF0E6"/><ellipse class="sil-part-hair" cx="50" cy="26" rx="26" ry="14" fill="#F8F9FA"/><path class="sil-part-hair" d="M 30,28 L 26,10 L 36,22 Z" fill="#F8F9FA"/><path class="sil-part-hair" d="M 38,22 L 38,6 L 46,20 Z" fill="#F8F9FA"/><path class="sil-part-hair" d="M 48,20 L 50,4 L 56,18 Z" fill="#F8F9FA"/><path class="sil-part-hair" d="M 58,22 L 64,8 L 66,24 Z" fill="#F8F9FA"/><path class="sil-part-hair" d="M 66,28 L 74,14 L 72,30 Z" fill="#F8F9FA"/><rect class="sil-part-hair" x="24" y="35" width="52" height="11" rx="5.5" fill="#1C1E24"/><rect class="sil-part-hair" x="27" y="37" width="18" height="3" rx="1.5" fill="white" opacity="0.2"/><path class="sil-part-head" d="M 44,52 Q 50,57 56,52" stroke="#4A3E3D" stroke-width="1.5" stroke-linecap="round" fill="none"/><ellipse class="sil-part-head" cx="36" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse class="sil-part-head" cx="64" cy="50" rx="4" ry="2.5" fill="#FADBD8" opacity="0.7"/><ellipse class="sil-part-body" cx="40" cy="91" rx="7" ry="4" fill="#232B3E"/><ellipse class="sil-part-body" cx="60" cy="91" rx="7" ry="4" fill="#232B3E"/></svg>`
     },
     penguin: {
       name: 'Cute Penguin', emoji: '🐧',
       caption: 'Pippin the waddling penguin! 🐧❄️',
       parts: [
         {
-          id: 'break', name: 'Pull off Penguin Clay',
-          instruction: 'Drag and pull to stretch a navy chunk wobbily off the clay block! 🤲',
-          action: 'pull', actionLabel: 'Drag right to pull clay'
+          id: 'break_body', name: 'Pull off Navy Clay',
+          instruction: 'Drag the wobbly dark navy block to separate a chunk for Pippin\'s egg torso! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull navy clay',
+          clayColor: '#2D323E'
         },
         {
-          id: 'knead', name: 'Knead Chunks',
-          instruction: 'Rub chunks back and forth to knead them into wobbly soft round balls! 🤲',
-          action: 'knead', actionLabel: 'Rub back & forth to knead'
+          id: 'knead_body', name: 'Knead Torso Clay',
+          instruction: 'Warm and knead the navy chunk wobbily into a smooth ball! 🤲',
+          action: 'knead', actionLabel: 'Rub back & forth to knead',
+          clayColor: '#2D323E'
         },
         {
-          id: 'body', name: 'Chubby Body & Feet',
-          instruction: 'Drag rolling pin up/down to shape navy clay into a waddly egg body and little feet! 🪵',
+          id: 'body', name: 'Roll Chubby Torso & Wings',
+          instruction: 'Drag the rolling pin wobbily up and down to shape navy clay into his body torso & wings! 🪵',
           action: 'roll', actionLabel: 'Drag up/down to roll body',
-          partSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="66" rx="26" ry="28" fill="#1e2235" stroke="#141627" stroke-width="1.8"/><ellipse cx="24" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.8" transform="rotate(-15 24 65)"/><ellipse cx="76" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.8" transform="rotate(15 76 65)"/><ellipse cx="40" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(-10 40 93)"/><ellipse cx="60" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(10 60 93)"/></svg>`,
-          assembleAt: { x: 50, y: 66 }
+          partSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="66" rx="26" ry="28" fill="#2D323E"/><ellipse cx="24" cy="65" rx="8" ry="14" fill="#2D323E" transform="rotate(-15 24 65)"/><ellipse cx="76" cy="65" rx="8" ry="14" fill="#2D323E" transform="rotate(15 76 65)"/><ellipse cx="40" cy="93" rx="9" ry="4" fill="#FF9F42" transform="rotate(-10 40 93)"/><ellipse cx="60" cy="93" rx="9" ry="4" fill="#FF9F42" transform="rotate(10 60 93)"/></svg>`,
+          assembleAt: { x: 50, y: 66 },
+          clayColor: '#2D323E'
         },
         {
-          id: 'head_details', name: 'Head & Belly',
-          instruction: 'Swipe to carve a cute penguin head, flatten a white belly, and shape orange beak! 🔪',
-          action: 'slice', actionLabel: 'Swipe to carve belly & face',
-          subParts: [
-            {
-              id: 'belly', name: 'White Belly',
-              partSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="70" rx="16" ry="20" fill="#F7F4EB"/><path d="M 46,40 L 50,47 L 54,40 Z" fill="#FF8C42" stroke="#E07030" stroke-width="1"/></svg>`,
-              assembleAt: { x: 50, y: 70 }
-            },
-            {
-              id: 'head', name: 'Penguin Head',
-              partSvg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="36" r="20" fill="#1e2235" stroke="#141627" stroke-width="1.8"/><circle cx="43" cy="32" r="6" fill="white"/><circle cx="57" cy="32" r="6" fill="white"/><circle cx="44" cy="33" r="3.5" fill="#1e1e2e"/><circle cx="58" cy="33" r="3.5" fill="#1e1e2e"/><circle cx="45" cy="31" r="1.2" fill="white"/><circle cx="59" cy="31" r="1.2" fill="white"/><ellipse cx="36" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse cx="64" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/></svg>`,
-              assembleAt: { x: 50, y: 36 }
-            }
-          ]
+          id: 'break_belly', name: 'Pull off White Clay',
+          instruction: 'Drag the wobbly white block to break off a chunk for Pippin\'s belly patch! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull white clay',
+          clayColor: '#FAF9F6'
+        },
+        {
+          id: 'belly', name: 'Roll Belly Patch',
+          instruction: 'Roll and flatten the white clay wobbily into a smooth round belly patch! 🪵',
+          action: 'roll', actionLabel: 'Drag up/down to roll belly',
+          partSvg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="70" rx="16" ry="20" fill="#FAF9F6"/><path d="M 46,40 L 50,47 L 54,40 Z" fill="#FF9F42"/></svg>`,
+          assembleAt: { x: 50, y: 70 },
+          clayColor: '#FAF9F6'
+        },
+        {
+          id: 'break_head', name: 'Pull off Head Clay',
+          instruction: 'Drag the navy clay block wobbily to separate a chunk for Pippin\'s head! 🤲',
+          action: 'pull', actionLabel: 'Drag right to pull head clay',
+          clayColor: '#2D323E'
+        },
+        {
+          id: 'knead_head', name: 'Knead Head Clay',
+          instruction: 'Warm and knead the head chunk back and forth to shape a perfect round head sphere! 🤲',
+          action: 'knead', actionLabel: 'Rub back & forth to knead',
+          clayColor: '#2D323E'
+        },
+        {
+          id: 'head', name: 'Penguin Eyes & Beak',
+          instruction: 'Swipe your carving tool wobbily to slice Pippin\'s black eyes and cute orange beak! 🔪',
+          action: 'slice', actionLabel: 'Swipe to carve eyes & beak',
+          partSvg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="36" r="20" fill="#2D323E"/><circle cx="43" cy="32" r="6" fill="white"/><circle cx="57" cy="32" r="6" fill="white"/><circle cx="44" cy="33" r="3.5" fill="#2D323E"/><circle cx="58" cy="33" r="3.5" fill="#2D323E"/><circle cx="45" cy="31" r="1.2" fill="white"/><circle cx="59" cy="31" r="1.2" fill="white"/><ellipse cx="36" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse cx="64" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/></svg>`,
+          assembleAt: { x: 50, y: 36 },
+          clayColor: '#2D323E'
         },
         {
           id: 'assemble', name: 'Assembly Studio',
           instruction: 'Drag wings, waddling body, white belly, and head onto the silhouette guide! 🐧',
-          action: 'assemble', actionLabel: 'Drag parts to silhouette'
+          action: 'assemble', actionLabel: 'Drag parts to silhouette',
+          clayColor: '#2D323E'
         }
       ],
-      finalSvg: `<svg viewBox="0 0 100 100"><ellipse class="sil-part-body" cx="50" cy="66" rx="26" ry="28" fill="#1e2235" stroke="#141627" stroke-width="1.5"/><ellipse class="sil-part-belly" cx="50" cy="70" rx="16" ry="20" fill="#F7F4EB"/><circle class="sil-part-head" cx="50" cy="36" r="20" fill="#1e2235" stroke="#141627" stroke-width="1.5"/><circle class="sil-part-head" cx="43" cy="32" r="6" fill="white"/><circle class="sil-part-head" cx="57" cy="32" r="6" fill="white"/><circle class="sil-part-head" cx="44" cy="33" r="3.5" fill="#1e1e2e"/><circle class="sil-part-head" cx="58" cy="33" r="3.5" fill="#1e1e2e"/><circle class="sil-part-head" cx="45" cy="31" r="1.2" fill="white"/><circle class="sil-part-head" cx="59" cy="31" r="1.2" fill="white"/><path class="sil-part-belly" d="M 46,40 L 50,47 L 54,40 Z" fill="#FF8C42" stroke="#E07030" stroke-width="1"/><ellipse class="sil-part-head" cx="36" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse class="sil-part-head" cx="64" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse class="sil-part-body" cx="24" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.5" transform="rotate(-15 24 65)"/><ellipse class="sil-part-body" cx="76" cy="65" rx="8" ry="14" fill="#1e2235" stroke="#141627" stroke-width="1.5" transform="rotate(15 76 65)"/><ellipse class="sil-part-body" cx="40" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(-10 40 93)"/><ellipse class="sil-part-body" cx="60" cy="93" rx="9" ry="4" fill="#FF8C42" transform="rotate(10 60 93)"/></svg>`
+      finalSvg: `<svg viewBox="0 0 100 100"><ellipse class="sil-part-body" cx="50" cy="66" rx="26" ry="28" fill="#2D323E"/><ellipse class="sil-part-belly" cx="50" cy="70" rx="16" ry="20" fill="#FAF9F6"/><circle class="sil-part-head" cx="50" cy="36" r="20" fill="#2D323E"/><circle class="sil-part-head" cx="43" cy="32" r="6" fill="white"/><circle class="sil-part-head" cx="57" cy="32" r="6" fill="white"/><circle class="sil-part-head" cx="44" cy="33" r="3.5" fill="#2D323E"/><circle class="sil-part-head" cx="58" cy="33" r="3.5" fill="#2D323E"/><circle class="sil-part-head" cx="45" cy="31" r="1.2" fill="white"/><circle class="sil-part-head" cx="59" cy="31" r="1.2" fill="white"/><path class="sil-part-belly" d="M 46,40 L 50,47 L 54,40 Z" fill="#FF9F42"/><ellipse class="sil-part-head" cx="36" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse class="sil-part-head" cx="64" cy="38" rx="4" ry="2.5" fill="#FADBD8" opacity="0.8"/><ellipse class="sil-part-body" cx="24" cy="65" rx="8" ry="14" fill="#2D323E" transform="rotate(-15 24 65)"/><ellipse class="sil-part-body" cx="76" cy="65" rx="8" ry="14" fill="#2D323E" transform="rotate(15 76 65)"/><ellipse class="sil-part-body" cx="40" cy="93" rx="9" ry="4" fill="#FF9F42" transform="rotate(-10 40 93)"/><ellipse class="sil-part-body" cx="60" cy="93" rx="9" ry="4" fill="#FF9F42" transform="rotate(10 60 93)"/></svg>`
     }
   };
 
@@ -1030,18 +1093,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  let autoAdvanceTimer = null;
+  let autoAdvanceInterval = null;
+
+  function clearAutoAdvance() {
+    if (autoAdvanceTimer) {
+      clearTimeout(autoAdvanceTimer);
+      autoAdvanceTimer = null;
+    }
+    if (autoAdvanceInterval) {
+      clearInterval(autoAdvanceInterval);
+      autoAdvanceInterval = null;
+    }
+    const nextBtn = document.getElementById('step-next-btn');
+    if (nextBtn) {
+      const data = sculptStepsData[currentSculptObject];
+      const isLast = currentStepIndex === data.parts.length - 1;
+      nextBtn.innerHTML = isLast
+        ? `Assemble! <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>`
+        : `Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+    }
+  }
+
   function goToStep(idx) {
+    clearAutoAdvance();
     const total = sculptStepsData[currentSculptObject].parts.length;
     if (idx < 0 || idx >= total) return;
     renderStep(currentSculptObject, idx, idx > currentStepIndex ? 'forward' : 'back');
     playClickChime();
   }
 
-  // Step navigation buttons
   const stepPrevBtn = document.getElementById('step-prev-btn');
   const stepNextBtn = document.getElementById('step-next-btn');
   const stepsBackBtn = document.getElementById('steps-back-btn');
-  
+
   if (stepNextBtn) {
     stepNextBtn.addEventListener('click', () => {
       const total = sculptStepsData[currentSculptObject].parts.length;
@@ -1064,6 +1149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (stepsBackBtn) {
     stepsBackBtn.addEventListener('click', () => {
+      clearAutoAdvance();
       playClickChime();
       updateRouterView('gallery');
     });
@@ -1074,33 +1160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupGameListeners();
   }
 
-  function getClayGradientDef() {
-    if (currentSculptObject === 'cat') {
-      return `
-        <linearGradient id="clay-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#FAF8F4" />
-          <stop offset="50%" stop-color="#FAF0DD" />
-          <stop offset="100%" stop-color="#F4DCD6" />
-        </linearGradient>
-      `;
-    } else if (currentSculptObject === 'gojo') {
-      return `
-        <linearGradient id="clay-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#FAF8F4" />
-          <stop offset="60%" stop-color="#3E517A" />
-          <stop offset="100%" stop-color="#1a2744" />
-        </linearGradient>
-      `;
-    } else { // penguin
-      return `
-        <linearGradient id="clay-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1e2235" />
-          <stop offset="50%" stop-color="#FFBD59" />
-          <stop offset="100%" stop-color="#FF8C42" />
-        </linearGradient>
-      `;
-    }
-  }
+
 
   function resetClayState() {
     if (!gameArea || clayState.transitioning) return;
@@ -1114,16 +1174,14 @@ document.addEventListener('DOMContentLoaded', () => {
     clayState.tapCount = 0;
 
     if (gameActionLabel) gameActionLabel.textContent = part?.actionLabel || '';
-    if (gameCompleteBadge) {
-      if (clayState.completed) gameCompleteBadge.classList.add('visible');
-      else gameCompleteBadge.classList.remove('visible');
-    }
     if (gameProgressFill) gameProgressFill.style.width = (clayState.progress * 100) + '%';
+    updateClayLiveProgressPercent(clayState.completed ? 1 : 0);
+    updateClaySupplyPalette();
 
-    // Hide active tools initially
     const pin = document.getElementById('game-rolling-pin');
     const knife = document.getElementById('game-clay-knife');
     const hand = document.getElementById('knead-hand');
+
     if (pin) pin.classList.remove('active');
     if (knife) knife.classList.remove('active');
     if (hand) hand.classList.remove('active');
@@ -1172,50 +1230,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function getActiveClayColor() {
+    const part = sculptStepsData[currentSculptObject]?.parts[currentStepIndex];
+    return part?.clayColor || '#FAF6EE';
+  }
+
+  function updateClaySupplyPalette() {
+    const supplyColorsContainer = document.getElementById('game-clay-supply-colors');
+    if (!supplyColorsContainer) return;
+    
+    supplyColorsContainer.innerHTML = '';
+    
+    const parts = sculptStepsData[currentSculptObject]?.parts || [];
+    const uniqueColors = [];
+    parts.forEach(p => {
+      if (p.clayColor && !uniqueColors.includes(p.clayColor)) {
+        uniqueColors.push(p.clayColor);
+      }
+    });
+    
+    const activeColor = getActiveClayColor();
+    
+    uniqueColors.forEach(color => {
+      const block = document.createElement('div');
+      block.className = 'clay-supply-color-block';
+      block.style.background = color;
+      
+      const glowColor = (color === '#FAF6EE' || color === '#FAF9F6' || color === '#F8F9FA' || color === '#FAF0E6') 
+        ? 'rgba(255, 255, 255, 0.8)' 
+        : color;
+      block.style.setProperty('--glow-color', glowColor);
+      
+      if (color === activeColor && clayState.action !== 'assemble') {
+        block.classList.add('active');
+      }
+      
+      supplyColorsContainer.appendChild(block);
+    });
+  }
+
   function injectInteractiveClayGraphic() {
     const wrapper = document.createElement('div');
     wrapper.className = 'game-clay-svg floating-bob';
     
-    // Choose wobbly game graphic depending on step action type
-    const colors = { cat: '#F0E5D7', gojo: '#FAF8F4', penguin: '#1e2235' };
-    const borderColors = { cat: '#DBC8B5', gojo: '#E0D5C5', penguin: '#141627' };
-    const border = borderColors[currentSculptObject] || '#DBC8B5';
+    const color = getActiveClayColor();
+    const part = sculptStepsData[currentSculptObject].parts[currentStepIndex];
 
-    let graphicMarkup = '';
+    let rawSvg = '';
+    let targetSvg = '';
 
     if (clayState.action === 'pull') {
-      // Left block, right chunk, connecting wobbly sticky neck
-      graphicMarkup = `
+      rawSvg = `
         <svg viewBox="0 0 120 100">
-          <defs>
-            ${getClayGradientDef()}
-          </defs>
-          <!-- Left Main Block -->
-          <path id="pull-left-block" d="M 12,24 Q 25,18 36,24 Q 45,40 38,76 Q 20,84 14,72 Z" fill="url(#clay-grad)" stroke="${border}" stroke-width="2.5" />
-          <!-- Wobbly connecting sticky neck -->
-          <path id="pull-connecting-neck" d="M 30,35 Q 40,40 45,45 Q 40,55 30,60" fill="url(#clay-grad)" stroke="none" />
-          <!-- Right chunk being pulled off -->
-          <circle id="pull-right-chunk" cx="45" cy="48" r="14" fill="url(#clay-grad)" stroke="${border}" stroke-width="2.5" />
+          <path id="pull-left-block" d="M 12,24 Q 25,18 36,24 Q 45,40 38,76 Q 20,84 14,72 Z" fill="${color}" />
+          <path id="pull-connecting-neck" d="M 30,35 Q 40,40 45,45 Q 40,55 30,60" fill="${color}" />
+          <circle id="pull-right-chunk" cx="45" cy="48" r="14" fill="${color}" />
+        </svg>
+      `;
+      targetSvg = `
+        <svg viewBox="0 0 120 100">
+          <path d="M 12,24 Q 25,18 36,24 Q 45,40 38,76 Q 20,84 14,72 Z" fill="${color}" />
+          <circle cx="88" cy="48" r="14" fill="${color}" />
         </svg>
       `;
     } else if (clayState.action === 'knead') {
-      // Rough cracked raw chunk
-      graphicMarkup = `<svg viewBox="0 0 100 100"><defs>${getClayGradientDef()}</defs><path d="M 28,34 Q 45,22 66,30 Q 82,46 68,66 Q 44,78 28,62 Q 18,44 28,34 Z" fill="url(#clay-grad)" stroke="${border}" stroke-width="4.5"/></svg>`;
+      rawSvg = `<svg viewBox="0 0 100 100"><path d="M 28,34 Q 45,22 66,30 Q 82,46 68,66 Q 44,78 28,62 Q 18,44 28,34 Z" fill="${color}"/></svg>`;
+      targetSvg = `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="28" fill="${color}"/></svg>`;
     } else if (clayState.action === 'roll') {
-      // Smooth round ball before rolling
-      graphicMarkup = `<svg viewBox="0 0 100 100"><defs>${getClayGradientDef()}</defs><circle cx="50" cy="50" r="28" fill="url(#clay-grad)" stroke="${border}" stroke-width="4.5"/></svg>`;
+      rawSvg = `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="28" fill="${color}"/></svg>`;
+      targetSvg = part.partSvg || '';
     } else if (clayState.action === 'slice') {
-      // Shaped rolled block waiting for carvings
       if (currentSculptObject === 'cat') {
-        graphicMarkup = `<svg viewBox="0 0 100 100"><defs>${getClayGradientDef()}</defs><ellipse cx="50" cy="58" rx="32" ry="24" fill="url(#clay-grad)" stroke="${border}" stroke-width="4.5"/></svg>`;
+        rawSvg = `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="58" rx="32" ry="24" fill="${color}"/></svg>`;
       } else if (currentSculptObject === 'gojo') {
-        graphicMarkup = `<svg viewBox="0 0 100 100"><defs>${getClayGradientDef()}</defs><circle cx="50" cy="46" r="26" fill="url(#clay-grad)" stroke="${border}" stroke-width="4.5"/></svg>`;
+        rawSvg = `<svg viewBox="0 0 100 100"><circle cx="50" cy="46" r="26" fill="${color}"/></svg>`;
       } else {
-        graphicMarkup = `<svg viewBox="0 0 100 100"><defs>${getClayGradientDef()}</defs><ellipse cx="50" cy="58" rx="24" ry="28" fill="url(#clay-grad)" stroke="${border}" stroke-width="4.5"/></svg>`;
+        rawSvg = `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="58" rx="24" ry="28" fill="${color}"/></svg>`;
       }
+      targetSvg = part.partSvg || '';
     }
 
-    wrapper.innerHTML = graphicMarkup;
+    wrapper.innerHTML = `
+      <div class="clay-live-raw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; transition: opacity 0.1s ease, transform 0.1s ease;">${rawSvg}</div>
+      <div class="clay-live-target" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.1s ease, transform 0.1s ease;">${targetSvg}</div>
+    `;
+
     wrapper.style.width = '150px';
     wrapper.style.height = '150px';
     wrapper.style.position = 'absolute';
@@ -1227,13 +1326,10 @@ document.addEventListener('DOMContentLoaded', () => {
       svgEl.style.position = 'absolute';
       svgEl.style.top = '0';
       svgEl.style.left = '0';
-      svgEl.style.filter = 'drop-shadow(0 6px 16px rgba(61,74,65,0.18))';
     });
 
-    // Insert wrapper cleanly
     gameArea.insertBefore(wrapper, gameArea.querySelector('.game-progress-bar').nextSibling);
     
-    // Auto-reveal if step was already completed in past
     if (clayState.completed) {
       if (gameProgressFill) gameProgressFill.style.width = '100%';
       transformClayToFinishedStepGraphic();
@@ -1244,33 +1340,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const svgWrapper = gameArea.querySelector('.game-clay-svg');
     if (!svgWrapper) return;
 
-    const part = sculptStepsData[currentSculptObject].parts[currentStepIndex];
-    const colors = { cat: '#F0E5D7', gojo: '#FAF8F4', penguin: '#1e2235' };
-    const borderColors = { cat: '#DBC8B5', gojo: '#E0D5C5', penguin: '#141627' };
-    const border = borderColors[currentSculptObject] || '#DBC8B5';
+    const rawEl = svgWrapper.querySelector('.clay-live-raw');
+    const targetEl = svgWrapper.querySelector('.clay-live-target');
 
-    if (clayState.action === 'pull') {
-      svgWrapper.innerHTML = `
-        <svg viewBox="0 0 120 100">
-          <defs>
-            ${getClayGradientDef()}
-          </defs>
-          <path d="M 12,24 Q 25,18 36,24 Q 45,40 38,76 Q 20,84 14,72 Z" fill="url(#clay-grad)" stroke="${border}" stroke-width="2.5" />
-          <circle cx="88" cy="48" r="14" fill="url(#clay-grad)" stroke="${border}" stroke-width="2.5" />
-        </svg>
-      `;
-    } else if (clayState.action === 'knead') {
-      // Smooth ball
-      svgWrapper.innerHTML = `<svg viewBox="0 0 100 100"><defs>${getClayGradientDef()}</defs><circle cx="50" cy="50" r="28" fill="url(#clay-grad)" stroke="${border}" stroke-width="4.5"/></svg>`;
-    } else if (clayState.action === 'roll') {
-      // Body part
-      svgWrapper.innerHTML = part.partSvg;
-    } else if (clayState.action === 'slice') {
-      // Detailed head & parts
-      svgWrapper.innerHTML = part.subParts ? part.subParts.map(p => p.partSvg).join('') : '';
+    if (rawEl && targetEl) {
+      rawEl.style.opacity = '0';
+      targetEl.style.opacity = '1';
+      targetEl.style.transform = 'scale(1)';
+    } else {
+      const part = sculptStepsData[currentSculptObject].parts[currentStepIndex];
+      const color = getActiveClayColor();
+
+      if (clayState.action === 'pull') {
+        svgWrapper.innerHTML = `
+          <svg viewBox="0 0 120 100">
+            <path d="M 12,24 Q 25,18 36,24 Q 45,40 38,76 Q 20,84 14,72 Z" fill="${color}" />
+            <circle cx="88" cy="48" r="14" fill="${color}" />
+          </svg>
+        `;
+      } else if (clayState.action === 'knead') {
+        svgWrapper.innerHTML = `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="28" fill="${color}"/></svg>`;
+      } else if (clayState.action === 'roll' || clayState.action === 'slice') {
+        svgWrapper.innerHTML = part.partSvg || '';
+      }
     }
     
-    // Set fixed dimensions on the wrapper to allow perfect absolute overlay of SVGs!
     svgWrapper.style.width = '150px';
     svgWrapper.style.height = '150px';
     svgWrapper.style.position = 'absolute';
@@ -1282,8 +1376,85 @@ document.addEventListener('DOMContentLoaded', () => {
       svgEl.style.position = 'absolute';
       svgEl.style.top = '0';
       svgEl.style.left = '0';
-      svgEl.style.filter = 'drop-shadow(0 6px 16px rgba(61,74,65,0.18))';
     });
+  }
+
+  function updateClayLiveMorph(progress) {
+    const svgWrapper = gameArea.querySelector('.game-clay-svg');
+    if (!svgWrapper) return;
+    
+    const rawEl = svgWrapper.querySelector('.clay-live-raw');
+    const targetEl = svgWrapper.querySelector('.clay-live-target');
+    
+    if (rawEl && targetEl) {
+      if (clayState.action === 'roll') {
+        // --- ROLL STEP DYNAMIC TWO-STAGE TRANSFORMATION ---
+        // Stage 1 (0.0 to 0.5): Flatten from raw sphere into a flat round dough
+        // Stage 2 (0.5 to 1.0): Organically expand and shape into the final uniform / part
+        if (progress < 0.5) {
+          const pStage = progress / 0.5; // Normalized stage progress (0 to 1)
+          
+          // Squash the raw ball horizontally and flatten vertically to look like flat dough!
+          const scaleX = 1 + pStage * 0.6; 
+          const scaleY = 1 - pStage * 0.35;
+          rawEl.style.transform = `scale(${scaleX}, ${scaleY})`;
+          rawEl.style.opacity = '1';
+          
+          // Target shape is highly squashed and mostly invisible/faded in
+          targetEl.style.transform = `scale(1.25, 0.45)`;
+          targetEl.style.opacity = (pStage * 0.25).toFixed(2);
+        } else {
+          const pStage = (progress - 0.5) / 0.5; // Normalized stage progress (0 to 1)
+          
+          // Raw flat dough shrinks and fades out as the target shape absorbs it
+          const scaleX = 1.6 - pStage * 0.6;
+          const scaleY = 0.65 + pStage * 0.35;
+          rawEl.style.transform = `scale(${scaleX}, ${scaleY})`;
+          rawEl.style.opacity = (1 - pStage).toFixed(2);
+          
+          // Target shape expands vertically and scales from flat dough to full 3D shape!
+          const targetScaleX = 1.25 - pStage * 0.25;
+          const targetScaleY = 0.45 + pStage * 0.55;
+          targetEl.style.transform = `scale(${targetScaleX}, ${targetScaleY})`;
+          targetEl.style.opacity = '1';
+        }
+      } else if (clayState.action === 'slice') {
+        // --- SLICE/CARVE DYNAMIC TRANSFORMATION ---
+        rawEl.style.opacity = (1 - progress).toFixed(2);
+        targetEl.style.opacity = progress.toFixed(2);
+        
+        // Dynamic carving skew and shave-off
+        rawEl.style.transform = `skewX(${Math.sin(progress * 12) * 8}deg) scale(${1 - progress * 0.1})`;
+        targetEl.style.transform = `scale(${0.7 + progress * 0.3})`;
+      } else if (clayState.action === 'knead') {
+        // --- KNEAD DYNAMIC TRANSFORMATION ---
+        rawEl.style.opacity = (1 - progress).toFixed(2);
+        targetEl.style.opacity = progress.toFixed(2);
+        
+        rawEl.style.transform = `scale(${1 + Math.sin(progress * 10) * 0.08}, ${1 + Math.cos(progress * 10) * 0.08})`;
+        targetEl.style.transform = `scale(${0.8 + progress * 0.2})`;
+      } else if (clayState.action === 'pull') {
+        // --- PULL STEP ---
+        rawEl.style.opacity = (1 - progress).toFixed(2);
+        targetEl.style.opacity = progress.toFixed(2);
+      }
+    }
+  }
+
+  function updateClayLiveProgressPercent(progress) {
+    const badge = document.getElementById('game-complete-badge');
+    if (!badge) return;
+    
+    badge.classList.add('visible');
+    const pct = Math.floor(progress * 100);
+    
+    if (pct >= 100) {
+      badge.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% Finished! ✨`;
+      badge.style.background = '#8FA499';
+    } else {
+      badge.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="animation: spin 3s linear infinite;"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="62" stroke-dashoffset="${62 - (62 * progress)}" fill="none"/></svg> ${pct}% Molded`;
+      badge.style.background = 'var(--color-pink)';
+    }
   }
 
   function updatePullStretchSVG(progress) {
@@ -1428,22 +1599,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const progress = Math.min(deltaX / 90, 1);
         clayState.progress = progress;
         clayState.interactions = Math.floor(progress * clayState.requiredInteractions);
-        
         if (gameProgressFill) gameProgressFill.style.width = (progress * 100) + '%';
-        
         updatePullStretchSVG(progress);
-        
+        updateClayLiveProgressPercent(progress);
         if (progress >= 1 && !clayState.completed) {
           completeActiveClayStep();
         }
         return;
       }
-      
+
       const dx = currentX - clayState.lastPointer.x;
       const dy = currentY - clayState.lastPointer.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      // Track carving tool visuals
       if (clayState.action === 'knead' && hand) {
         hand.style.left = currentX + 'px';
         hand.style.top = currentY + 'px';
@@ -1481,6 +1649,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const progress = Math.min(clayState.interactions / clayState.requiredInteractions, 1);
         if (gameProgressFill) gameProgressFill.style.width = (progress * 100) + '%';
+        updateClayLiveMorph(progress);
+        updateClayLiveProgressPercent(progress);
 
         if (clayState.interactions >= clayState.requiredInteractions) {
           completeActiveClayStep();
@@ -1639,7 +1809,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateStepDots(currentStepIndex, sculptStepsData[currentSculptObject].parts.length);
     if (gameProgressFill) gameProgressFill.style.width = '100%';
-    if (gameCompleteBadge) gameCompleteBadge.classList.add('visible');
+    updateClayLiveProgressPercent(1);
 
     // Trigger wobbly scale and chime on completion
     playPopChime();
@@ -1654,6 +1824,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextBtn) {
       nextBtn.disabled = false;
       nextBtn.classList.add('pulse-highlight');
+      
+      const total = sculptStepsData[currentSculptObject].parts.length;
+      if (currentStepIndex < total - 1) {
+        clearAutoAdvance();
+        
+        let secondsLeft = 5;
+        const updateButtonCountdown = () => {
+          nextBtn.innerHTML = `Next (${secondsLeft}s) <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+        };
+        
+        updateButtonCountdown();
+        
+        autoAdvanceInterval = setInterval(() => {
+          secondsLeft--;
+          if (secondsLeft <= 0) {
+            clearInterval(autoAdvanceInterval);
+            autoAdvanceInterval = null;
+          } else {
+            updateButtonCountdown();
+          }
+        }, 1000);
+        
+        autoAdvanceTimer = setTimeout(() => {
+          goToStep(currentStepIndex + 1);
+        }, 5000);
+      }
     }
 
     // Fly animation to shelf (triggered after a satisfying 950ms delay so user can admire their work!)
