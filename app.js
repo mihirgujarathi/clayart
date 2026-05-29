@@ -293,6 +293,18 @@ document.addEventListener('DOMContentLoaded', () => {
       window.history.pushState({}, '', url);
     }
     
+    // Sync music Next button highlight state when entering music screen
+    if (targetScreen === 'music') {
+      const musicNextBtn = document.getElementById('music-next-btn');
+      if (musicNextBtn) {
+        if (state.isVinylLoaded) {
+          musicNextBtn.classList.add('pulse-highlight');
+        } else {
+          musicNextBtn.classList.remove('pulse-highlight');
+        }
+      }
+    }
+
     // Reset Screen 1 story details if entering intro screen
     if (targetScreen === 'intro') {
       currentStoryStep = 0;
@@ -645,6 +657,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const isFirstLoad = !state.isVinylLoaded;
     state.isVinylLoaded = true;
+
+    // Highlight next button when a vinyl is loaded
+    const musicNextBtn = document.getElementById('music-next-btn');
+    if (musicNextBtn) {
+      musicNextBtn.classList.add('pulse-highlight');
+    }
 
     currentTrackKey = trackKey;
     playClickChime();
@@ -2015,7 +2033,7 @@ document.addEventListener('DOMContentLoaded', () => {
       shareToast.style.fontFamily = 'var(--font-display)';
       shareToast.style.zIndex = '200';
       shareToast.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
-      shareToast.innerHTML = '✨ Copied Polaroid for Pranjal! 📋';
+      shareToast.innerHTML = '✨ Copied Polaroid for Dear Pranjal! 📋';
       
       polaroidModal.appendChild(shareToast);
       
@@ -2156,7 +2174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span style="font-size: 2.2rem; animation: floatLogo 3s ease-in-out infinite;">🐧❤️🐧</span>
             <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: var(--color-pink-deep);">Yay! We waddle again!</h4>
             <p style="font-size: 0.72rem; color: var(--color-sage-deep); line-height: 1.4; padding: 0 4px;">
-              Thank you, Pranjal! You've made my year! Let's talk, waddle, and make amazing memories together again. No more busy driftings. I'm right here! 💖
+              Thank you, Dear Pranjal! You've made my year! Let's talk, waddle, and make amazing memories together again. No more busy driftings. I'm right here! 💖
             </p>
             <button class="action-btn next" id="celebrate-return-btn" style="background: var(--color-pink-dark) !important; border-color: var(--color-pink-dark) !important; color: #3D4A41 !important; margin-top: 6px; padding: 8px 12px; font-size: 0.72rem; border-radius: 12px;">
               🔄 Craft Again
@@ -2193,7 +2211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span style="font-size: 2.2rem; animation: floatLogo 4s ease-in-out infinite;">☕⏳</span>
             <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; color: var(--color-sage-deep);">Take all your time...</h4>
             <p style="font-size: 0.72rem; color: var(--color-sage-deep); line-height: 1.4; padding: 0 4px;">
-              I completely understand, Pranjal. Take all the time you need. I'm just incredibly grateful that you took the time to read this. I'll always be here waiting for our next waddle! 💖
+              I completely understand, Dear Pranjal. Take all the time you need. I'm just incredibly grateful that you took the time to read this. I'll always be here waiting for our next waddle! 💖
             </p>
             <button class="action-btn secondary" id="celebrate-return-btn" style="background: rgba(255,255,255,0.7) !important; border: 1.5px solid rgba(143,164,153,0.3) !important; margin-top: 6px; padding: 8px 12px; font-size: 0.72rem; border-radius: 12px;">
               🔄 Craft Again

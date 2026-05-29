@@ -963,7 +963,7 @@
       70% { transform: scale(1.06); box-shadow: 0 0 0 10px rgba(229, 178, 169, 0); }
       100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 178, 169, 0); }
     }
-    .step-nav-btn.next.pulse-highlight {
+    .pulse-highlight {
       animation: pulseNextHighlight 1.5s infinite ease-in-out !important;
       border-color: var(--color-pink-dark) !important;
     }
@@ -1506,7 +1506,7 @@
                   Back
                 </button>
                 <h3 class="screen-title" style="font-size: 1.05rem; font-weight: 800; letter-spacing: -0.2px; margin: 0;">Select a music ☕</h3>
-                <button class="steps-back-btn next-screen-trigger" data-target="gallery" title="Next Screen" style="background: var(--color-pink-dark) !important; border-color: var(--color-pink-dark) !important; color: #3D4A41 !important;">
+                <button class="steps-back-btn next-screen-trigger" id="music-next-btn" data-target="gallery" title="Next Screen" style="background: var(--color-pink-dark) !important; border-color: var(--color-pink-dark) !important; color: #3D4A41 !important;">
                   Next
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 6 15 12 9 18"/></svg>
                 </button>
@@ -1860,7 +1860,7 @@
                   <!-- Final Assembled SVG will be dynamically injected here -->
                 </div>
                 <div class="polaroid-modal-caption" id="polaroid-modal-caption">cozy companion 💖</div>
-                <div class="polaroid-modal-author">sculpted with 💖 by Pranjal</div>
+                <div class="polaroid-modal-author">sculpted with 💖 by Dear Pranjal</div>
               </div>
               <div class="polaroid-modal-buttons">
                 <button class="action-btn primary" id="polaroid-message-btn" style="background: var(--color-pink-deep) !important; color: white !important; margin-bottom: 4px;">💌 View Message from Author</button>
@@ -1911,11 +1911,11 @@
                 
                 <div class="message-card-header">
                   <span class="message-card-emoji">💌</span>
-                  <h3>A Note for Pranjal</h3>
+                  <h3>A Note for Dear Pranjal</h3>
                 </div>
                 
                 <div class="message-card-body">
-                  <p class="letter-paragraph">Pranjal...</p>
+                  <p class="letter-paragraph">Dear Pranjal...</p>
                   <p class="letter-paragraph">We had such an amazing bond, but somehow I let it drain away while getting swallowed up in work and daily rush...</p>
                   <p class="letter-paragraph">I deeply miss our late-night talks, our silly laughs, and the wonderful connection we shared. It was a mistake to let it drift apart.</p>
                   <p class="letter-paragraph">I wanted to ask you from the bottom of my heart... <strong>Can we give our friendship another chance?</strong> 🥺</p>
